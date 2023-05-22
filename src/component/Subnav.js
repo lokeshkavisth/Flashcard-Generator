@@ -7,8 +7,8 @@ const Subnav = () => {
           Create Flashcard
         </h2>
 
-        <div className="flex items-center pb-2 border border-b-2 border-b-gray-300">
-          <ul className="flex flex-row font-medium mt-0 px-5 gap-4 text-sm">
+        <div className=" border-b-2  border-b-gray-300">
+          <ul className="flex flex-row font-medium mt-0 px-5 gap-4 text-sm mb-2">
             <li>
               <a
                 href=""
@@ -17,7 +17,7 @@ const Subnav = () => {
               >
                 Create New
               </a>
-            </li>
+              </li>
             <li>
               <a href="" className="text-gray-500  hover:underline">
                 MyFlashcard

@@ -11,7 +11,7 @@ const Container = () => {
       <Subnav />
       <CreateFlashcard />
       <div className="mt-10 text-center ">
-        <button className=" bg-red-500 text-white px-10 py-2 rounded-md">
+        <button className=" bg-red-500 text-white px-12 py-2 rounded-md">
           Create
         </button>
       </div>

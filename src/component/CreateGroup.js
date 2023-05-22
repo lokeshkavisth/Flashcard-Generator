@@ -12,17 +12,12 @@ const CreateGroup = () => {
             name="group"
             id="group"
             required
-            className=" border-2   border-gray-400 rounded-md w-96 px-2 py-1 h-11"
+            className=" border-2   border-gray-400 rounded-md w-96 px-2 py-1 h-11 mt-2"
           />
         </div>
         <div className="max-w-max break-keep">
-          <button>
-            <label
-              htmlFor="profile"
-              className="border-2 border-gray-400 px-4 py-2 text-lg rounded-md text-blue-600 break-keep min-w-max"
-            >
-              Upload Image
-            </label>
+          <button className="border-2 border-gray-400 px-4 py-1 text-lg rounded-md text-blue-600 break-keep min-w-max">
+            <label htmlFor="profile">Upload Image</label>
             <input type="file" name="profile" id="profile" hidden />
           </button>
         </div>
@@ -32,7 +27,7 @@ const CreateGroup = () => {
           Add Description
         </label>
         <textarea
-          className=" border-2 border-gray-400 rounded-md px-2 py-1 w-full lg:max-w-4xl h-28"
+          className=" border-2 border-gray-400 rounded-md px-2 py-1 w-full lg:max-w-4xl h-28 mt-2"
           name="groupdesc"
           id="groupdesc"
         ></textarea>
