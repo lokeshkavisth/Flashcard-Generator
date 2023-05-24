@@ -5,8 +5,7 @@ import Subnav from "./Subnav";
 const Container = () => {
   return (
     <main
-      className="max-w-screen-2xl px-3 mx-auto my-8 mt-20 xl:px-20 lg:px-14 md:px-10
-"
+      className="max-w-screen-2xl px-3 mx-auto my-8 mt-20 xl:px-20 lg:px-14 md:px-10"
     >
       <Subnav />
       <CreateFlashcard />

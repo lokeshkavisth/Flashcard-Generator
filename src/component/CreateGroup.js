@@ -2,9 +2,9 @@ import React from "react";
 
 const CreateGroup = () => {
   return (
-    <div className=" bg-white p-5 pb-10 rounded-md mt-8 ">
-      <div className="flex items-end gap-5 ">
-        <div className="flex flex-col ">
+    <div className="  bg-white p-5 pb-10 rounded-md mt-8 ">
+      <div className="flex flex-col sm:flex-row  gap-5 ">
+        <div className="flex flex-col  ">
           <label className="text-gray-500">Create Group*</label>
           <input
             border
@@ -12,11 +12,11 @@ const CreateGroup = () => {
             name="group"
             id="group"
             required
-            className=" border-2   border-gray-400 rounded-md w-96 px-2 py-1 h-11 mt-2"
+            className=" border-2   border-gray-400 rounded-md w-full sm:w-80 px-2 py-1 h-11 mt-2"
           />
         </div>
-        <div className="max-w-max break-keep">
-          <button className="border-2 border-gray-400 px-4 py-1 text-lg rounded-md text-blue-600 break-keep min-w-max">
+        <div className=" sm:self-end ">
+          <button className="border-2 min-w-max border-gray-400 px-4 py-1 text-lg rounded-md text-blue-600  align-middle">
             <label htmlFor="profile">Upload Image</label>
             <input type="file" name="profile" id="profile" hidden />
           </button>
