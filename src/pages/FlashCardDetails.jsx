@@ -1,5 +1,5 @@
 import React from 'react'
-import flash1 from '../images/flashimg1.webp'
+import flash1 from '../assets/flashimg1.webp'
 import { BiArrowBack } from 'react-icons/bi';
 import { HiArrowUturnRight } from 'react-icons/hi2';
 import { BsDownload, BsPrinter } from 'react-icons/bs';

@@ -1,6 +1,6 @@
 import React from "react";
 import CreateFlashcard from "../pages/CreateFlashcard";
-import Subnav from "./Subnav";
+import Subnav from "../components/Subnav";
 import FlashCardDetails from "../pages/FlashCardDetails"
 const Container = () => {
   return (

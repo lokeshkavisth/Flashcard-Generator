@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Myflashcard = () => {
+const DisplayFlashCard = () => {
     return (
         <div>
             <div
@@ -31,4 +31,4 @@ const Myflashcard = () => {
     )
 }
 
-export default Myflashcard
+export default DisplayFlashCard
