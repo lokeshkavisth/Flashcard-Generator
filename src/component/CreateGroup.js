@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const CreateGroup = () => {
+  const [Img, setImg]=useState('')
   return (
     <div className="  bg-white p-5 pb-10 rounded-md mt-8 ">
       <div className="flex flex-col sm:flex-row  gap-5 ">
@@ -16,10 +17,18 @@ const CreateGroup = () => {
           />
         </div>
         <div className=" sm:self-end ">
-          <button className="border-2 min-w-max border-gray-400 px-4 py-1 text-lg rounded-md text-blue-600  align-middle">
+          <button className="border-2 min-w-max border-gray-400 px-4 py-1 text-lg h-11 rounded-md text-blue-600  align-middle">
             <label htmlFor="profile">Upload Image</label>
-            <input type="file" name="profile" id="profile" hidden />
+
+            <input
+              onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))}
+              type="file"
+              name="profile"
+              id="profile"
+              hidden
+            />
           </button>
+          <img src={Img} alt="" />
         </div>
       </div>
       <div className="flex flex-col mt-4 ">

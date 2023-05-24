@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaAccessibleIcon } from "react-icons/fa";
-import { RiDeleteBin6Line, RiDeleteBinLine } from "react-icons/ri";
+import { RiDeleteBin6Line, RiDeleteBinLine, RiH1 } from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 
 const CreateTerm = () => {
+  const [data,setData]=useState("")
+
+ 
+     console.log("data",data);
   return (
     <div className="flex flex-col sm:flex-row bg-white mt-8  p-5 rounded-md ">
       <div className="mr-3">
@@ -11,35 +15,44 @@ const CreateTerm = () => {
           1
         </span>
       </div>
+
       <div className="">
-        <div className="flex flex-col sm:flex-row  items-end gap-5 ">
-          <div className="flex flex-col md:flex-wrap ">
+        <div className="flex flex-col sm:flex-row flex-wrap items-end gap-5 ">
+          <div className="flex flex-col w-full lg:w-96 ">
             <label className="text-gray-500">Enter Term*</label>
+
             <input
-              border
               type="text"
-              name="group"
-              id="group"
+              name="createGroup"
+              id="createGroup"
               required
-              className=" border-2   border-gray-400 rounded-md w-full sm:w-80 px-2 py-1 h-11 mt-2"
+              className=" border-2   border-gray-400 rounded-md  px-2 py-1 h-11 mt-2"
             />
           </div>
-          <div className="flex flex-col ">
+          <div className="flex flex-col w-full lg:w-96 ">
             <label className="text-gray-500">Enter Defination*</label>
             <input
-              border
               type="text"
-              name="group"
-              id="group"
+              name="create0group"
+              id="create0Group"
               required
-              className=" border-2   border-gray-400 rounded-md w-full sm:w-80 px-2 py-1 h-11 mt-2"
+              className=" border-2   border-gray-400 rounded-md  px-2 py-1 h-11 mt-2"
             />
           </div>
-          <div className="flex sm:flex-wrap flex-row">
-            <button className="border-2 border-gray-400 px-4 py-1 text-lg rounded-md text-blue-600 break-keep min-w-max">
-              <label htmlFor="profile">Select Image</label>
-              <input type="file" name="profile" id="profile" hidden />
+          <div className="flex flex-row">
+            <button className="border-2 border-gray-400 px-4 py-1 h-11 text-lg rounded-md text-blue-600 break-keep min-w-max">
+              <label htmlFor="image">Select Image</label>
+              <input
+                onChange={(e) =>
+                  setData(URL.createObjectURL(e.target.files[0]))
+                }
+                type="file"
+                name="image"
+                id="image"
+                hidden
+              />
             </button>
+            <img src={data} alt="" />
             {/* <div>
               <RiDeleteBin6Line />
 
