@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { HiOutlinePencilAlt } from "react-icons/hi";
 
 const CreateGroup = () => {
   const [Img, setImg]=useState('')
@@ -17,18 +19,28 @@ const CreateGroup = () => {
           />
         </div>
         <div className=" sm:self-end ">
-          <button className="border-2 min-w-max border-gray-400 px-4 py-1 text-lg h-11 rounded-md text-blue-600  align-middle">
-            <label htmlFor="profile">Upload Image</label>
+          {!Img ? (
+            <button className="border-2 min-w-max border-gray-400 px-4 py-1 text-lg h-11 rounded-md text-blue-600  align-middle">
+              <label htmlFor="profile">Upload Image</label>
 
-            <input
-              onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))}
-              type="file"
-              name="profile"
-              id="profile"
-              hidden
-            />
-          </button>
-          <img src={Img} alt="" />
+              <input
+                onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))}
+                type="file"
+                name="profile"
+                id="profile"
+                hidden
+              />
+            </button>
+          ) : (
+            <div className="flex">
+              <img className="w-40" src={Img} alt="" />
+              <div className="mt-3 ">
+                <RiDeleteBin6Line className="text-red-300 text-2xl" />
+
+                <HiOutlinePencilAlt className="text-blue-400 text-2xl" />
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex flex-col mt-4 ">
