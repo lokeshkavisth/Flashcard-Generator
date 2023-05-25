@@ -1,9 +1,11 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
+import Subnav from './Subnav'
 
 const DisplayFlashCard = () => {
     return (
-        <div>
+        <div className="max-w-screen-2xl px-3 mx-auto my-8 mt-20 xl:px-20 lg:px-14 md:px-10">
+            <Subnav />
             <div
                 className="p-4 m-6 mx-auto flex flex-col space-y-3 items-center justify-center bg-white rounded-md text-black w-[23rem] h-[13rem] relative border-2 border-slate-200"
             >
@@ -21,11 +23,13 @@ const DisplayFlashCard = () => {
                 <p className="font-medium text-sm text-slate-700">
                     Number of Cards
                 </p>
-                <button
-                    className="py-1 px-16 text-red-600 font-bold rounded-sm border-red-600 ring-2 ring-red-600"
-                >
-                    View Cards
-                </button>
+                <Link to='/carddetails'>
+                    <button
+                        className="py-1 px-16 text-red-600 font-bold rounded-sm border-red-600 ring-2 ring-red-600"
+                    >
+                        View Cards
+                    </button>
+                </Link>
             </div>
         </div>
     )

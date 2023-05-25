@@ -4,12 +4,15 @@ import { BiArrowBack } from 'react-icons/bi';
 import { HiArrowUturnRight } from 'react-icons/hi2';
 import { BsDownload, BsPrinter } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 export default function FlashCardDetails() {
     return (
         <div className="flex flex-col min-h-screen -pb-5">
             <div className='flex'>
                 <div>
+                    <Link to='/myFlashCard'>
                     <BiArrowBack size={'2.5rem'} />
+                    </Link>
                 </div>
                 <div className="flex flex-col">
                     <p className='ml-4 mt-0.5 text-3xl'>FlashCardDetails</p>
