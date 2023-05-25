@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { FaAccessibleIcon } from "react-icons/fa";
+// import { FaAccessibleIcon } from "react-icons/fa";
 import { RiDeleteBin6Line, RiDeleteBinLine, RiH1 } from "react-icons/ri";
-import { HiOutlinePencilAlt } from "react-icons/hi";
+// import { HiOutlinePencilAlt } from "react-icons/hi";
 
 const CreateTerm = () => {
-  const [data,setData]=useState("")
+  const [data, setData] = useState("")
 
- 
-     console.log("data",data);
+
+  console.log("data", data);
   return (
     <div className="flex flex-col sm:flex-row bg-white mt-8  p-5 rounded-md ">
       <div className="mr-3">
