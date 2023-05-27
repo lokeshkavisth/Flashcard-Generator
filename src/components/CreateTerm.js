@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 
 import { RiDeleteBin6Line} from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
@@ -11,6 +12,16 @@ const CreateTerm = () => {
 
  
   
+=======
+// import { FaAccessibleIcon } from "react-icons/fa";
+import { RiDeleteBin6Line, RiDeleteBinLine, RiH1 } from "react-icons/ri";
+// import { HiOutlinePencilAlt } from "react-icons/hi";
+
+const CreateTerm = () => {
+  const [data, setData] = useState("");
+
+  console.log("data", data);
+>>>>>>> master
   return (
     <div className="flex flex-col sm:flex-row bg-white mt-8  p-5 rounded-md ">
       <div className="mr-3">
@@ -76,7 +87,6 @@ const CreateTerm = () => {
             />
           </div>
         </div>
-        <button className="font-semibold text-blue-700 mt-4">+ Add more</button>
       </div>
     </div>
   );
