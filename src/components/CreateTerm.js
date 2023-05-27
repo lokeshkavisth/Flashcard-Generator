@@ -4,8 +4,7 @@ import { RiDeleteBin6Line, RiDeleteBinLine, RiH1 } from "react-icons/ri";
 // import { HiOutlinePencilAlt } from "react-icons/hi";
 
 const CreateTerm = () => {
-  const [data, setData] = useState("")
-
+  const [data, setData] = useState("");
 
   console.log("data", data);
   return (
@@ -60,7 +59,6 @@ const CreateTerm = () => {
             </div> */}
           </div>
         </div>
-        <button className="font-semibold text-blue-700 mt-4">+ Add more</button>
       </div>
     </div>
   );
