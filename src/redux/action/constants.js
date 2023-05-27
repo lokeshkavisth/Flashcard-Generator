@@ -1,0 +1,1 @@
+export const CREATE_FLASH_CARD = "CREATE_FLASH_CARD";
