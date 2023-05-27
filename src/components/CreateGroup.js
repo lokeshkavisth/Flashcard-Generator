@@ -8,19 +8,6 @@ import * as Yup from "yup";
 const CreateGroup = () => {
   const [Img, setImg] = useState();
 
-  // const defoaultValue = {
-  //   name: "",
-  //   groupdesc:"",
-  // };
-
-  // const validationSchema=Yup.object().shape({
-
-  //   name: Yup.string().min(2).max(25).required("Please enter somthing"),
-  //   groupdesc: Yup.string().min(2).max(1000).required("Please enter somthing")
-  // })
-
-  // console.log(formik)
-
   return (
     <div className="  bg-white p-5 pb-10 rounded-md mt-8 ">
       <div className="flex flex-col sm:flex-row  gap-5 ">
