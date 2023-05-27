@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Subnav from './Subnav'
+import { useSelector } from 'react-redux'
 
 const DisplayFlashCard = () => {
+    const data = useSelector(state => state)
+    console.log('redux data', data.actionReducer.flashCard);
     return (
         <div className="max-w-screen-2xl px-3 mx-auto my-8 mt-20 xl:px-20 lg:px-14 md:px-10">
             <Subnav />
@@ -16,7 +19,7 @@ const DisplayFlashCard = () => {
                         alt='img'
                     />
                 </div>
-                <h2 className="font-bold text-lg">GroupName</h2>
+                <h2 className="font-bold text-lg">{data.actionReducer.flashCard.group}</h2>
                 <p className="text-center font-medium text-sm text-slate-600 line-clamp-2">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, aliquam, autem unde, minus dolorem velit illum dolor praesentium fuga reprehenderit perferendis? Quaerat obcaecati tenetur rerum cum sunt sit iusto voluptatem!
                 </p>

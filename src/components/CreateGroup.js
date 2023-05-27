@@ -22,7 +22,7 @@ const CreateGroup = () => {
             className=" border-2   border-gray-400 rounded-md w-full sm:w-80 px-2 py-1 h-11 mt-2"
           />
           <p className="text-red-500">
-            <ErrorMessage name="group" />
+            {/* <ErrorMessage name="group" /> */}
           </p>
         </div>
 
