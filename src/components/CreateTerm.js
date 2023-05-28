@@ -1,27 +1,11 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
-
-import { RiDeleteBin6Line} from "react-icons/ri";
-import { HiOutlinePencilAlt } from "react-icons/hi";
-import { Formik, useFormik, Form, Field, ErrorMessage } from "formik";
-
-
-
-const CreateTerm = () => {
-  const [data, setData] = useState();
-
- 
-  
-=======
 // import { FaAccessibleIcon } from "react-icons/fa";
 import { RiDeleteBin6Line, RiDeleteBinLine, RiH1 } from "react-icons/ri";
-// import { HiOutlinePencilAlt } from "react-icons/hi";
-
+import { HiOutlinePencilAlt } from "react-icons/hi";
+import { ErrorMessage, Field } from "formik";
 const CreateTerm = () => {
   const [data, setData] = useState("");
 
-  console.log("data", data);
->>>>>>> master
   return (
     <div className="flex flex-col sm:flex-row bg-white mt-8  p-5 rounded-md ">
       <div className="mr-3">
@@ -61,7 +45,7 @@ const CreateTerm = () => {
           </div>
           <div className="flex flex-row">
             {!data ? (
-              <button className="border-2 border-gray-400 px-4 py-1 h-11 text-lg rounded-md text-blue-600 break-keep min-w-max">
+              <button type='button' className="border-2 border-gray-400 px-4 py-1 h-11 text-lg rounded-md text-blue-600 break-keep min-w-max">
                 <label htmlFor="image">Select Image</label>
               </button>
             ) : (
