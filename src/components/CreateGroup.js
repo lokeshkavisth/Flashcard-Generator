@@ -11,7 +11,7 @@ const CreateGroup = () => {
   return (
     <div className="  bg-white p-5 pb-10 rounded-md mt-8 ">
       <div className="flex flex-col sm:flex-row  gap-5 ">
-        <div className="flex flex-col  ">
+        <div className="flex flex-col relative">
           <label className="text-gray-500">Create Group*</label>
           <Field
             border
@@ -21,8 +21,8 @@ const CreateGroup = () => {
             required
             className=" border-2   border-gray-400 rounded-md w-full sm:w-80 px-2 py-1 h-11 mt-2"
           />
-          <p className="text-red-500">
-            {/* <ErrorMessage name="group" /> */}
+          <p className="text-red-500 absolute -bottom-6 left-0">
+            <ErrorMessage name="group" />
           </p>
         </div>
 
