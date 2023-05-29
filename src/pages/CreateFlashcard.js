@@ -26,16 +26,14 @@ const CreateFlashcard = () => {
 
   return (
     <Formik
-      initialValues={{profile:null,
-        terms: [{}],
-      }}
+      initialValues={{ profile: "profile", terms: [{}] }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
         dispatch(createFlashCard(values));
         console.log("values", values);
       }}
     >
-      {({ values ,setFieldValue }) => (
+      {({ values, setFieldValue }) => (
         <Form>
           <section>
             <CreateGroup setFieldValue={setFieldValue} />

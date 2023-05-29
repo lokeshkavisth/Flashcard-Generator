@@ -44,9 +44,11 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
           )}
           <Field
             onChange={(e) =>
-              setFieldValue(URL.createObjectURL(e.target.files[0]))
-              // setFieldValue("profile", e.target.files[0])
+              setImg(URL.createObjectURL(e.target.files[0]))
+              
             }
+
+          
             type="file"
             name="profile"
             id="profile"

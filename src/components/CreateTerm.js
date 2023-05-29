@@ -89,7 +89,7 @@ const CreateTerm = ({ values }) => {
                             }
                             // onChange={(e) => setData()}
                             type="file"
-                            name={`terms.${index}.image`}
+                            name='image'
                             id="image"
                             hidden
                           />
