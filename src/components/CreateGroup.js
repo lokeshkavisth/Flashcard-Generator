@@ -3,6 +3,9 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { Formik, useFormik, Form, Field, ErrorMessage } from "formik";
 
+import * as Yup from "yup";
+
+
 
 
 const CreateGroup = ({setFieldValue,ImgVlaue}) => {
@@ -33,8 +36,15 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
             </button>
           ) : (
             <div className="flex">
+
+              <div>
+              <img className="w-20 rounded-md  aspect-square object-cover" src={Img} alt="" />
+              </div>
+              <div >
+
               <img className="w-24 rounded-md" src={Img} alt="" />
               <div>
+
                 <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />
                 <label htmlFor="profile">
                   <HiOutlinePencilAlt className="text-blue-400 text-2xl m-1" />

@@ -32,6 +32,36 @@ const CreateTerm = ({ values }) => {
                         <div className="flex flex-col w-full relative lg:w-96 ">
                           <label className="text-gray-500">Enter Term*</label>
 
+
+            <Field
+              type="text"
+              name="term"
+              id="term"
+              required
+              className=" border-2   border-gray-400 rounded-md  px-2 py-1 h-11 mt-2"
+            />
+            <p className="text-red-500">
+              <ErrorMessage name="term" />
+            </p>
+          </div>
+          <div className="flex flex-col w-full lg:w-96 ">
+            <label className="text-gray-500">Enter Defination*</label>
+            <Field
+              type="text"
+              name="defination"
+              id="defination"
+              required
+              className=" border-2   border-gray-400 rounded-md  px-2 py-1 h-11 mt-2"
+            />
+            <p className="text-red-500">
+              <ErrorMessage name="defination" />
+            </p>
+          </div>
+          <div className="flex flex-row">
+            {!data ? (
+              <button className="border-2 border-gray-400 px-4 py-1 h-11 text-lg rounded-md text-blue-600 break-keep min-w-max">
+                <label htmlFor="image">Select Image</label>
+
                           <Field
                             type="text"
                             name={`terms.${index}.term`}
@@ -39,11 +69,19 @@ const CreateTerm = ({ values }) => {
                             required
                             className=" border-2   border-gray-400 rounded-md  px-2 py-1 h-11 mt-2"
                           />
+
+                          <p className="text-red-500">
+                            <ErrorMessage name={`terms.${index}.term`} />
+                          </p>
+                        </div>
+                        <div className="flex flex-col w-full lg:w-96 ">
+
                           <p className="text-red-500 absolute -bottom-5 left-0">
                             <ErrorMessage name={`terms.${index}.term`} />
                           </p>
                         </div>
                         <div className="flex flex-col w-full relative lg:w-96 ">
+
                           <label className="text-gray-500">
                             Enter Defination*
                           </label>
@@ -54,8 +92,11 @@ const CreateTerm = ({ values }) => {
                             required
                             className=" border-2   border-gray-400 rounded-md  px-2 py-1 h-11 mt-2"
                           />
+
+                          <p className="text-red-500">
+
                           <p className="text-red-500  absolute -bottom-5 left-0">
-                            <ErrorMessage name={`terms.${index}.defination`} />
+                           <ErrorMessage name={`terms.${index}.defination`} />
                           </p>
                         </div>
                         <div className="flex flex-row">
@@ -68,11 +109,63 @@ const CreateTerm = ({ values }) => {
                             </button>
                           ) : (
                             <div className="flex ">
+
+                              <img className="w-20 rounded-md  aspect-square object-cover" src={data} alt="" />
+
+                              <div>
+                                <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />
+
+                                <label htmlFor="image">
+                                  <HiOutlinePencilAlt className="text-blue-400 text-2xl m-1" />
+                                </label>
+                              </div>
+                            </div>
+                          )}
+                          <input
+                            onChange={(e) =>
+                              setData(URL.createObjectURL(e.target.files[0]))
+                            }
+                            // onChange={(e) => setData()}
+                            type="file"
+                            name="image"
+                            id="image"
+                            hidden
+                          />
+                        </div>
+                        {!index == 0 && (
+                          <button
+                            type="button"
+                            onClick={() => arrayHelpers.remove(index)} 
+                
+                          >
+                            Remove
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              <button
+                type="button"
+                onClick={() => arrayHelpers.push("")}
+                className="px-6 py-2 text-blue-600"
+              >
+                + Add More
+
+              </button>
+            ) : (
+              <div className="flex ">
+                <img className="w-40" src={data} alt="" />
+
                               <img
                                 className="w-28 rounded-md"
                                 src={data}
                                 alt=""
                               />
+
 
                               <div>
                                 <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />

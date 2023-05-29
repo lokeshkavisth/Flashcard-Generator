@@ -5,7 +5,7 @@ import { GrClose } from "react-icons/gr";
 import { FaEnvelope, FaFacebookF, FaLinkedinIn, FaTwitter, FaWhatsapp } from "react-icons/fa"
 
 
-function Modal({ closeModal }) {
+function Modal({ modalPop }) {
   const [Link, setLink] = useState(window.location.href);
   
 
@@ -19,7 +19,7 @@ const copyLink=(e)=>{
     <div className="fixed inset-0 bg-gray-300 bg-opacity-50 flex justify-center items-center">
       <div className="mx-7 lg:w-96 lg:h-60 bg-white rounded-lg outline-none align-middle ">
         <div className="flex  justify-end m-3 opacity-50 hover:opacity-100">
-          <button onClick={() => closeModal(false)} className="close">
+          <button onClick={() => modalPop(false)} className="close">
             <GrClose />
           </button>
         </div>

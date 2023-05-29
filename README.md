@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+<h1 align="center"> FlashCard </h1> <br>
+<p align="center">
+  <a href="https://gitpoint.co/">
+    <img alt="FlashCard" title="FlashCard" src="./src/assets/almaImage.jpg" width="300">
+  </a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  Create flashcards using this project.
+</p>
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Contributors](#contributors)
+- [Build Process](#build-process)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Introduction
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+We created this project with the help of Front-end technologies called HTML, tailwind CSS and JS library i.e., React JS and also used some of the libraries called Formik and Yup for React form validation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Available for both iOS and Android.**
 
-### `npm run build`
+<p align="center">
+  <img src = "http://i.imgur.com/HowF6aM.png" width=350>
+</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A few of the things you can do with FlashCard:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* View user activity feed
+* You can easily create flashcard
+* Add images
+* Share on social media
+* Better UI/UX
+* Edit and delete cards/groups
+* Create multi terms at the same time
+* Print and download as a Pdf
+* Switch between dark and light mode
 
-### `npm run eject`
+<p align="center">
+  <img src = "http://i.imgur.com/IkSnFRL.png" width=700>
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Feedback
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Feel free to send us feedback on [Twitter](https://twitter.com/gitpointapp) or [file an issue](https://github.com/gitpoint/git-point/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
 
-## Learn More
+If there's anything you'd like to discuss about, please feel free to email us [Email](https://gitter.im/git-point)!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Build Process
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-### Making a Progressive Web App
+```bash
+# Clone this repository
+$ git clone https://github.com/lokeshkavisth/resume-builder-almabetter-project.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Go into the repository
+$ cd resume-builder-almabetter-project
 
-### Advanced Configuration
+# Install dependencies
+$ npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Run the app
+$ npm run dev
+```
 
-### Deployment
+> **Note**
+> If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+ 
+## Contributers[![Backers on Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#teams)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Thank you to all our Contributers! 🙏 [[Become a contributer](https://opencollective.com/git-point#backer)]
 
-### `npm run build` fails to minify
+<a href="https://opencollective.com/git-point#backers" target="_blank"><img src="https://opencollective.com/git-point/backers.svg?width=890"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Acknowledgments
+
+Thanks to [JetBrains](https://www.jetbrains.com) for supporting us with a [free Open Source License](https://www.jetbrains.com/buy/opensource).
+
+## Licence
+
+**MIT**
