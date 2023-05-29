@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-// import { FaAccessibleIcon } from "react-icons/fa";
-import { RiDeleteBin6Line, RiDeleteBinLine, RiH1 } from "react-icons/ri";
+
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { ErrorMessage, Field, FieldArray } from "formik";
 
 const CreateTerm = ({ values }) => {
   const [data, setData] = useState("");
+ 
+
+
+  
 
   return (
     <div className="bg-white mt-8  p-5 rounded-md ">
@@ -25,7 +29,7 @@ const CreateTerm = ({ values }) => {
 
                     <div>
                       <div className="flex flex-col sm:flex-row flex-wrap items-end gap-5 ">
-                        <div className="flex flex-col w-full lg:w-96 ">
+                        <div className="flex flex-col w-full relative lg:w-96 ">
                           <label className="text-gray-500">Enter Term*</label>
 
                           <Field
@@ -35,11 +39,11 @@ const CreateTerm = ({ values }) => {
                             required
                             className=" border-2   border-gray-400 rounded-md  px-2 py-1 h-11 mt-2"
                           />
-                          <p className="text-red-500">
+                          <p className="text-red-500 absolute -bottom-5 left-0">
                             <ErrorMessage name={`terms.${index}.term`} />
                           </p>
                         </div>
-                        <div className="flex flex-col w-full lg:w-96 ">
+                        <div className="flex flex-col w-full relative lg:w-96 ">
                           <label className="text-gray-500">
                             Enter Defination*
                           </label>
@@ -50,7 +54,7 @@ const CreateTerm = ({ values }) => {
                             required
                             className=" border-2   border-gray-400 rounded-md  px-2 py-1 h-11 mt-2"
                           />
-                          <p className="text-red-500">
+                          <p className="text-red-500  absolute -bottom-5 left-0">
                             <ErrorMessage name={`terms.${index}.defination`} />
                           </p>
                         </div>
@@ -64,13 +68,17 @@ const CreateTerm = ({ values }) => {
                             </button>
                           ) : (
                             <div className="flex ">
-                              <img className="w-40" src={data} alt="" />
+                              <img
+                                className="w-28 rounded-md"
+                                src={data}
+                                alt=""
+                              />
 
-                              <div className="mt-3">
-                                <RiDeleteBin6Line className="text-red-300 text-2xl" />
+                              <div>
+                                <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />
 
                                 <label htmlFor="image">
-                                  <HiOutlinePencilAlt className="text-blue-400 text-2xl" />
+                                  <HiOutlinePencilAlt className="text-blue-400 text-2xl m-1" />
                                 </label>
                               </div>
                             </div>
@@ -81,13 +89,14 @@ const CreateTerm = ({ values }) => {
                             }
                             // onChange={(e) => setData()}
                             type="file"
-                            name="image"
+                            name='image'
                             id="image"
                             hidden
                           />
                         </div>
                         {!index == 0 && (
                           <button
+                            className="text-red-300 font-semibold border bg-bule"
                             type="button"
                             onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
                           >
@@ -104,7 +113,7 @@ const CreateTerm = ({ values }) => {
               <button
                 type="button"
                 onClick={() => arrayHelpers.push("")}
-                className="px-6 py-2 text-blue-600"
+                className="px-6 py-2 text-blue-600 font-bold"
               >
                 + Add More
               </button>
