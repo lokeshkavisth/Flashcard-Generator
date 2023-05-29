@@ -1,3 +1,3 @@
 import { combineReducers } from "redux";
-import { actionReducer } from '../reducer/actionReducer';
+import { actionReducer } from './actionReducer';
 export const rootReducer = combineReducers({ actionReducer })

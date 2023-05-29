@@ -14,7 +14,7 @@ const Subnav = () => {
           <Link
 
             to="/"
-            className="text-gray-500  hover:underline "
+            className="text-gray-500   hover:text-red-500 "
             aria-current="page"
           >
             Create New
