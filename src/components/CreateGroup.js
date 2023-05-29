@@ -43,12 +43,18 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
             </div>
           )}
           <Field
-            onChange={(e) =>
-              setImg(URL.createObjectURL(e.target.files[0]))
-              
-            }
+            onChange={(e) => {setFieldValue("proflie", e.target.files[0]);
+
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              console.log(e.target.result);
+            };
+
+            reader.readAsText(file);}
 
           
+          }
             type="file"
             name="profile"
             id="profile"

@@ -26,7 +26,7 @@ const CreateFlashcard = () => {
 
   return (
     <Formik
-      initialValues={{ profile: "profile", terms: [{}] }}
+      initialValues={{profile:null, terms: [{}] }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
         dispatch(createFlashCard(values));
