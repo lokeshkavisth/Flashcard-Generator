@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { Formik, useFormik, Form, Field, ErrorMessage } from "formik";
+
 import * as Yup from "yup";
 
-const CreateGroup = () => {
+
+
+
+const CreateGroup = ({setFieldValue,ImgVlaue}) => {
   const [Img, setImg] = useState();
 
   return (
     <div className="  bg-white p-5 pb-10 rounded-md mt-8 ">
       <div className="flex flex-col sm:flex-row  gap-5 ">
-        <div className="flex flex-col  ">
+        <div className="flex flex-col relative">
           <label className="text-gray-500">Create Group*</label>
           <Field
             border
@@ -20,7 +24,7 @@ const CreateGroup = () => {
             required
             className=" border-2   border-gray-400 rounded-md w-full sm:w-80 px-2 py-1 h-11 mt-2"
           />
-          <p className="text-red-500">
+          <p className="text-red-500 absolute -bottom-6 left-0">
             <ErrorMessage name="group" />
           </p>
         </div>
@@ -32,10 +36,15 @@ const CreateGroup = () => {
             </button>
           ) : (
             <div className="flex">
+
               <div>
               <img className="w-20 rounded-md  aspect-square object-cover" src={Img} alt="" />
               </div>
               <div >
+
+              <img className="w-24 rounded-md" src={Img} alt="" />
+              <div>
+
                 <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />
                 <label htmlFor="profile">
                   <HiOutlinePencilAlt className="text-blue-400 text-2xl m-1" />
@@ -44,7 +53,18 @@ const CreateGroup = () => {
             </div>
           )}
           <Field
-            onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))}
+            onChange={(e) => {setFieldValue("proflie", e.target.files[0]);
+
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              console.log(e.target.result);
+            };
+
+            reader.readAsText(file);}
+
+          
+          }
             type="file"
             name="profile"
             id="profile"
@@ -56,11 +76,12 @@ const CreateGroup = () => {
         <label className="text-gray-500" htmlFor="groupdesc ">
           Add Description
         </label>
-        <textarea
-          className=" border-2 border-gray-400 rounded-md px-2 py-1 w-full lg:max-w-4xl h-28 mt-2"
+        <Field
+          as="textarea"
+          className=" border-2 border-gray-400 rounded-md px-2 py-1 w-full lg:max-w-4xl h-28 mt-2 resize-none"
           name="groupdesc"
           id="groupdesc"
-        ></textarea>
+        />
 
         <p className="text-red-500">
           <ErrorMessage name="groupdesc" />

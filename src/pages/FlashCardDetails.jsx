@@ -5,6 +5,7 @@ import { HiArrowUturnRight } from 'react-icons/hi2';
 import { BsDownload, BsPrinter } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+
 export default function FlashCardDetails() {
     return (
         <div className="flex flex-col min-h-screen -pb-5">
