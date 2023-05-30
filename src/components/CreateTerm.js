@@ -5,12 +5,12 @@ import { HiOutlinePencilAlt } from "react-icons/hi";
 import { ErrorMessage, Field, FieldArray } from "formik";
 
 const CreateTerm = ({ values }) => {
-  const [data, setData] = useState("");
- 
 
+  const [data, setData] = useState([]);
 
   
 
+ 
   return (
     <div className="bg-white mt-8  p-5 rounded-md ">
       <FieldArray
@@ -75,8 +75,10 @@ const CreateTerm = ({ values }) => {
                               />
 
                               <div>
-                                <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />
-
+                                <button type="button"
+                                onClick={()=>setData(data,"")}>
+                                  <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />
+                                </button>
                                 <label htmlFor="image">
                                   <HiOutlinePencilAlt className="text-blue-400 text-2xl m-1" />
                                 </label>
@@ -84,12 +86,19 @@ const CreateTerm = ({ values }) => {
                             </div>
                           )}
                           <input
-                            onChange={(e) =>
-                              setData(URL.createObjectURL(e.target.files[0]))
-                            }
-                            // onChange={(e) => setData()}
+                            onChange={(e) => {
+                              const file = e.target.files[0];
+                              const reader = new FileReader();
+
+                              reader.readAsDataURL(file);
+                              reader.onload = function (e) {
+                                setData([...data, e.target.result]);
+
+                                // setData(data.filter((e,i)=>i!==e))
+                              };
+                            }}
                             type="file"
-                            name='image'
+                            name="image"
                             id="image"
                             hidden
                           />
@@ -98,7 +107,7 @@ const CreateTerm = ({ values }) => {
                           <button
                             className="text-red-300 font-semibold border bg-bule"
                             type="button"
-                            onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                            onClick={() => arrayHelpers.remove(index)}
                           >
                             Remove
                           </button>
