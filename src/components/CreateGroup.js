@@ -9,7 +9,8 @@ import * as Yup from "yup";
 
 
 const CreateGroup = ({setFieldValue,ImgVlaue}) => {
-  const [Img, setImg] = useState();
+
+  const [Img, setImg] = useState(null);
 
   return (
     <div className="  bg-white p-5 pb-10 rounded-md mt-8 ">
@@ -50,7 +51,26 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
             </div>
           )}
           <Field
-            onChange={(e) =>  setImg(URL.createObjectURL(e.target.files[0]))}
+
+//             onChange={(e) =>  setImg(URL.createObjectURL(e.target.files[0]))}
+
+            onChange={(e) => {
+
+            const file = e.target.files[0];
+            const reader = new FileReader();
+
+             reader.readAsDataURL(file);
+            reader.onload = function (e) {
+             
+             setImg(e.target.result)
+
+            };
+
+           setFieldValue("proflie", Img);
+
+            
+          }
+
 
             
          
