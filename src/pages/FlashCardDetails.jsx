@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import flash1 from '../assets/flashimg1.webp'
 import { BiArrowBack } from 'react-icons/bi';
 import { HiArrowUturnRight } from 'react-icons/hi2';
 import { BsDownload, BsPrinter } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import Modal from "../components/Modal";
 
 export default function FlashCardDetails() {
+
+    const [show, setShow] = useState(false);
+
     return (
         <div className="flex flex-col min-h-screen -pb-5">
             <div className='flex'>
@@ -20,7 +24,7 @@ export default function FlashCardDetails() {
                     <p className=" m-4 mb-10">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quaerat nemo totam debitis sint natus libero, voluptatem tempore ea, ex repudiandae minima enim. Natus delectus ullam ipsum, harum velit illum.</p>
                 </div>
             </div>
-            <div className='flex flex-col gap-10 items-start xl:flex-row'>
+            <div className='flex flex-col gap-10 items-start md:flex-row'>
                 <div className="flex flex-col w-full shadow-md bg-white rounded-md p-5 ">
                     <p className='text-2xl mb-5 mx-10'>Flashcards</p>
                     <ul className='text-lg space-y-2'>
@@ -49,8 +53,11 @@ export default function FlashCardDetails() {
                         </button>
                     </div>
                 </div>
+                {show && <Modal modalPop={setShow} />}
                 <div className="flex flex-col w-full gap-5">
-                    <button
+                    <button onClick={() => {
+                      setShow(true);
+                    }}
                         className="flex items-center px-8  py-2 text-lg shadow-md bg-white rounded-lg gap-3 min-w-max  ">
                         <HiArrowUturnRight className='text-2xl ' />
                         Share

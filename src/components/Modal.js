@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import { BsShare } from "react-icons/bs";
 import { BiCopyAlt } from "react-icons/bi";
-import { GrClose } from "react-icons/gr";
+import { VscChromeClose } from "react-icons/vsc";
+import { FiShare2 } from "react-icons/fi";
 import { FaEnvelope, FaFacebookF, FaLinkedinIn, FaTwitter, FaWhatsapp } from "react-icons/fa"
 
 
@@ -10,7 +10,7 @@ function Modal({ modalPop }) {
   
 
 
-const copyLink=(e)=>{
+const textLink=(e)=>{
   navigator.clipboard.writeText(Link)
   alert('Link is Copied')
   setLink(e.target.value)
@@ -20,11 +20,11 @@ const copyLink=(e)=>{
       <div className="mx-7 lg:w-96 lg:h-60 bg-white rounded-lg outline-none align-middle ">
         <div className="flex  justify-end m-3 opacity-50 hover:opacity-100">
           <button onClick={() => modalPop(false)} className="close">
-            <GrClose />
+            <VscChromeClose />
           </button>
         </div>
 
-        <span className="text-lg font-bold px-7">Share</span>
+        <span className="text-lg font-semibold px-7">Share</span>
 
         <div className="my-4 px-7 flex items-center justify-center ">
           <input
@@ -33,7 +33,8 @@ const copyLink=(e)=>{
             value={Link}
           />
           <button className="flex items-center justify-center  opacity-60 mx-4">
-          <BiCopyAlt onClick={copyLink} className="text-2xl  hover:opacity-70" /> <BsShare className="text-lg ml-4" /> 
+          <BiCopyAlt onClick={textLink} className="text-2xl  hover:opacity-70" /> 
+          <FiShare2 className="text-lg ml-4" /> 
           </button>
         </div>
         <div className="icons">
