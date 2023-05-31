@@ -41,9 +41,6 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
               <div>
               <img className="w-20 rounded-md  aspect-square object-cover" src={Img} alt="" />
               </div>
-              <div >
-
-              <img className="w-24 rounded-md" src={Img} alt="" />
               <div>
 
                 <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />
@@ -54,6 +51,9 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
             </div>
           )}
           <Field
+
+//             onChange={(e) =>  setImg(URL.createObjectURL(e.target.files[0]))}
+
             onChange={(e) => {
 
             const file = e.target.files[0];
@@ -71,8 +71,9 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
             
           }
 
-          
-          }
+
+            
+         
             type="file"
             name="profile"
             id="profile"
