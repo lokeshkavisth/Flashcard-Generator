@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import flash1 from "../assets/flashimg1.webp";
 import { BiArrowBack } from "react-icons/bi";
@@ -5,7 +6,9 @@ import { HiArrowUturnRight } from "react-icons/hi2";
 import { BsDownload, BsPrinter } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
+
 import Modal from "../components/Modal";
+import Subnav from "../components/Subnav";
 
 export default function FlashCardDetails() {
   const [show, setShow] = useState(false);
@@ -93,4 +96,5 @@ export default function FlashCardDetails() {
       </div>
     </div>
   );
+
 }

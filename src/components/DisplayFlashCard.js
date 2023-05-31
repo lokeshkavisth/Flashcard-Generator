@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const DisplayFlashCard = () => {
+
   const { flashCard } = useSelector((state) => state.actionReducer);
   console.log("redux data", flashCard);
   return (
@@ -22,6 +23,7 @@ const DisplayFlashCard = () => {
         </div>
       ) : (
         flashCard.map((values, index) => (
+
           <div className="p-4 m-6 mx-auto flex flex-col space-y-3 items-center justify-center bg-white rounded-md text-black w-[23rem] h-[13rem] relative border-2 border-slate-200">
             <div className="absolute -top-9">
               <img
@@ -43,10 +45,12 @@ const DisplayFlashCard = () => {
               </button>
             </Link>
           </div>
+
         ))
       )}
     </div>
   );
 };
+
 
 export default DisplayFlashCard;
