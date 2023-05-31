@@ -1,26 +1,31 @@
 import React, { useState } from 'react'
 import flash1 from '../assets/flashimg1.webp'
-import { BiArrowBack } from 'react-icons/bi';
+// import { BiArrowBack } from 'react-icons/bi';
 import { HiArrowUturnRight } from 'react-icons/hi2';
 import { BsDownload, BsPrinter } from 'react-icons/bs';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { VscArrowLeft } from "react-icons/vsc";
 import { Link } from 'react-router-dom';
 import Modal from "../components/Modal";
+import Subnav from "../components/Subnav";
 
 export default function FlashCardDetails() {
 
     const [show, setShow] = useState(false);
 
     return (
-        <div className="flex flex-col min-h-screen -pb-5">
+        <div className="flex mx-10 flex-col min-h-screen -pb-5">
+            <div>
+                <Subnav/>
+            </div>
             <div className='flex'>
                 <div>
                     <Link to='/myFlashCard'>
-                    <BiArrowBack size={'2.5rem'} />
+                    <VscArrowLeft className='mt-4' size={'2rem'} />
                     </Link>
                 </div>
-                <div className="flex flex-col">
-                    <p className='ml-4 mt-0.5 text-3xl'>FlashCardDetails</p>
+                <div className="flex mx-2 flex-col">
+                    <p className='ml-4 mt-4 font-semibold text-2xl'>FlashCardDetails</p>
                     <p className=" m-4 mb-10">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quaerat nemo totam debitis sint natus libero, voluptatem tempore ea, ex repudiandae minima enim. Natus delectus ullam ipsum, harum velit illum.</p>
                 </div>
             </div>
@@ -59,18 +64,18 @@ export default function FlashCardDetails() {
                       setShow(true);
                     }}
                         className="flex items-center px-8  py-2 text-lg shadow-md bg-white rounded-lg gap-3 min-w-max  ">
-                        <HiArrowUturnRight className='text-2xl ' />
+                        <HiArrowUturnRight className='text-xl ' />
                         Share
                     </button>
 
                     <button
                         className="flex items-center px-8  py-2 text-lg shadow-md bg-white rounded-lg gap-3 min-w-max  ">
-                        <BsDownload className='text-2xl ' />
+                        <BsDownload className='text-xl ' />
                         Download
                     </button>
 
                     <button className="flex items-center px-8  py-2 text-lg shadow-md bg-white rounded-lg gap-3 min-w-max  ">
-                        <BsPrinter className='text-2xl ' />
+                        <BsPrinter className='text-xl ' />
                         Print
                     </button>
                 </div>

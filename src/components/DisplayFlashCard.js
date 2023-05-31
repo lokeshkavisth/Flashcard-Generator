@@ -7,8 +7,9 @@ const DisplayFlashCard = () => {
 const {flashCard} = useSelector((state) => state.actionReducer);
     console.log('redux data', flashCard);
     return (
-      <div className="max-w-screen-2xl px-3 mx-auto my-8 mt-20 xl:px-20 lg:px-14 md:px-10">
+      <div className="max-w-screen-2xl px-3 mx-auto my-8 mt-20 xl:px-20 lg:px-14 md:px-10 grid grid-cols-3 gap-10 mr-3">
         {flashCard.map((values, index) => (
+          
           <div className="p-4 m-6 mx-auto flex flex-col space-y-3 items-center justify-center bg-white rounded-md text-black w-[23rem] h-[13rem] relative border-2 border-slate-200">
             <div className="absolute -top-9">
               <img
@@ -30,6 +31,7 @@ const {flashCard} = useSelector((state) => state.actionReducer);
               </button>
             </Link>
           </div>
+         
         ))}
       </div>
     );
