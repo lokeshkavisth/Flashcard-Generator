@@ -69,7 +69,7 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
            setFieldValue("proflie", Img);
 
             
-          }
+          }}
 
 
             
