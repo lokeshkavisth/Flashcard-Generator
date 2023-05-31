@@ -3,7 +3,6 @@ import CreateGroup from "../components/CreateGroup";
 import CreateTerm from "../components/CreateTerm";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { store } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 import { createFlashCard } from "../redux/action/action";
 
@@ -14,37 +13,51 @@ const CreateFlashcard = () => {
       Yup.object().shape({
         term: Yup.string().required("Please enter somthing"),
         defination: Yup.string().required("Please enter somthing"),
-
       })
     ),
   });
 
   const dispatch = useDispatch();
 
-  const selector = useSelector(state => state.actionReducer)
-  console.log('selector', selector)
+  const selector = useSelector((state) => state.actionReducer);
+  console.log("selector", selector);
 
   return (
     <Formik
-      initialValues={{ terms: [{}] }}
+      initialValues={{
+        id: "",
+        groups: {
+          group: "",
+          profile: null,
+          groupdesc: "",
+        },
+        terms: [
+          {
+            term: "",
+            defination: "",
+            image: null,
+          },
+        ],
+      }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
+      onSubmit={(values, action) => {
         dispatch(createFlashCard(values));
-        console.log("values", values);
+        action.resetForm();
       }}
     >
-      {({ values, setFieldValue }) => (
+      {({ values, setFieldValue, isSubmitting }) => (
         <Form>
-          <section>
-            <CreateGroup setFieldValue={setFieldValue} />
-            <CreateTerm values={values} />
+          <section className="space-y-10">
+            <CreateGroup values={values} setFieldValue={setFieldValue} />
+            <CreateTerm values={values} setFieldValue={setFieldValue} />
 
-            <div className="mt-10 text-center ">
+            <div className="text-center ">
               <button
                 type="submit"
-                className=" bg-red-500 text-white px-12 py-2 rounded-md"
+                disabled={isSubmitting}
+                className=" bg-red-500 hover:bg-red-600 transition-all text-white px-12 py-3 font-semibold rounded-md"
               >
-                Create
+                Create Flashcard
               </button>
             </div>
           </section>

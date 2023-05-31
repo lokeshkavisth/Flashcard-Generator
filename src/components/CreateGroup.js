@@ -1,26 +1,19 @@
 import React, { useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { HiOutlinePencilAlt } from "react-icons/hi";
-import { Formik, useFormik, Form, Field, ErrorMessage } from "formik";
+import { Field, ErrorMessage } from "formik";
+import { BiImageAdd } from "react-icons/bi";
 
-import * as Yup from "yup";
-
-
-
-
-const CreateGroup = ({setFieldValue,ImgVlaue}) => {
-
-  const [Img, setImg] = useState(null);
-
+const CreateGroup = ({ setFieldValue, values }) => {
   return (
-    <div className="  bg-white p-5 pb-10 rounded-md mt-8 ">
+    <div className="  bg-white p-10 rounded-md mt-8 shadow-md">
       <div className="flex flex-col sm:flex-row  gap-5 ">
         <div className="flex flex-col relative">
           <label className="text-gray-500">Create Group*</label>
           <Field
             border
             type="text"
-            name="group"
+            name="groups.group"
             id="group"
             required
             className=" border-2   border-gray-400 rounded-md w-full sm:w-80 px-2 py-1 h-11 mt-2"
@@ -31,28 +24,38 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
         </div>
 
         <div className=" sm:self-end ">
-          {!Img ? (
-            <button className="border-2 min-w-max border-gray-400 px-4 py-1 text-lg h-11 rounded-md text-blue-600  align-middle">
-              <label htmlFor="profile">Upload Image</label>
+          {!values.groups.profile ? (
+            <button
+              type="button"
+              className="border-2 min-w-max border-gray-400 px-4 py-1 text-lg h-11 rounded-md text-blue-600  align-middle"
+            >
+              <label
+                htmlFor="profile"
+                className="flex items-center gap-3 text-black"
+              >
+                <BiImageAdd className="text-xl text-blue-500" />
+                Select Image
+              </label>
             </button>
           ) : (
-            <div className="flex">
-
+            <div className="flex items-center gap-4">
               <div>
-              <img className="w-20 rounded-md  aspect-square object-cover" src={Img} alt="" />
+                <img
+                  className="w-20 rounded-md  aspect-square object-cover"
+                  src={values.groups.profile}
+                  alt=""
+                />
               </div>
-              <div>
-
-                <RiDeleteBin6Line className="text-red-300 text-2xl m-1" />
+              <div className="flex flex-col justify-between gap-3 text-2xl">
+                <RiDeleteBin6Line className="text-red-500" />
                 <label htmlFor="profile">
-                  <HiOutlinePencilAlt className="text-blue-400 text-2xl m-1" />
+                  <HiOutlinePencilAlt className="text-blue-500" />
                 </label>
               </div>
             </div>
           )}
           <Field
-
-//             onChange={(e) =>  setImg(URL.createObjectURL(e.target.files[0]))}
+          
 
             onChange={(e) => {
 
@@ -73,11 +76,20 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
 
 
             
-         
+
             type="file"
-            name="profile"
+            name="groups.profile"
             id="profile"
+            value={""}
             hidden
+            onChange={(e) => {
+              const file = e.target.files[0];
+              const reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.onload = () => {
+                setFieldValue("groups.profile", reader.result);
+              };
+            }}
           />
         </div>
       </div>
@@ -85,10 +97,11 @@ const CreateGroup = ({setFieldValue,ImgVlaue}) => {
         <label className="text-gray-500" htmlFor="groupdesc ">
           Add Description
         </label>
+
         <Field
           as="textarea"
           className=" border-2 border-gray-400 rounded-md px-2 py-1 w-full lg:max-w-4xl h-28 mt-2 resize-none"
-          name="groupdesc"
+          name="gorups.groupdesc"
           id="groupdesc"
         />
 
