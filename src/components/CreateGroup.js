@@ -55,30 +55,8 @@ const CreateGroup = ({ setFieldValue, values }) => {
             </div>
           )}
           <Field
-          
-
-            onChange={(e) => {
-
-            const file = e.target.files[0];
-            const reader = new FileReader();
-
-             reader.readAsDataURL(file);
-            reader.onload = function (e) {
-             
-             setImg(e.target.result)
-
-            };
-
-           setFieldValue("proflie", Img);
-
-            
-          }}
-
-
-            
-
-            type="file"
-            name="groups.profile"
+type="file"
+            name="groups.profile"   
             id="profile"
             value={""}
             hidden
