@@ -1,7 +1,7 @@
 <h1 align="center"> FlashCard </h1> <br>
 <p align="center">
   <a href="https://gitpoint.co/">
-    <img alt="FlashCard" title="FlashCard" src="./src/assets/logo.png" width="300">
+    <img alt="FlashCard" title="FlashCard" src="./src/assets/almaImage.jpg" width="300">
   </a>
 </p>
 
@@ -81,13 +81,12 @@ $ npm run dev
 > **Note**
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
  
-## Contributers
+## Contributers[![Backers on Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#teams)
 
-Thank you to all our Contributers! 🙏 
+Thank you to all our Contributers! 🙏 [[Become a contributer](https://opencollective.com/git-point#backer)]
 
-- Shrikrishna patil [@Patil-Shrikrishna](https://github.com/Patil-Shrikrishna)
-- Akhilesh mourya [@akhilesh365](https://github.com/akhilesh365)
-- Sneta gupta [@snetagupta](https://github.com/snetagupta)
+<a href="https://opencollective.com/git-point#backers" target="_blank"><img src="https://opencollective.com/git-point/backers.svg?width=890"></a>
+
 
 ## Acknowledgments
 
