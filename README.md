@@ -1,7 +1,7 @@
 <h1 align="center"> FlashCard </h1> <br>
 <p align="center">
   <a href="https://gitpoint.co/">
-    <img alt="FlashCard" title="FlashCard" src="./src/assets/almaImage.jpg" width="300">
+    <img alt="FlashCard" title="FlashCard" src="./src/assets/logo.png" width="300">
   </a>
 </p>
 
