@@ -1,100 +1,225 @@
+// Flashcard detail page that shows flashcard data
 
-import React, { useState } from "react";
-import flash1 from "../assets/flashimg1.webp";
-import { BiArrowBack } from "react-icons/bi";
-import { HiArrowUturnRight } from "react-icons/hi2";
-import { BsDownload, BsPrinter } from "react-icons/bs";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { BsArrowLeft, BsDownload, BsPrinter } from "react-icons/bs";
+import { CiShare2 } from "react-icons/ci";
+import Button from "../components/ui/button/Button";
+import { GrNext, GrPrevious } from "react-icons/gr";
+import ShareModal from "../components/ui/modal/ShareModal";
+import Slider from "../components/ui/slider/Slider";
+import PrintTemplate from "../components/template/PrintTemplate";
+import { useSelector } from "react-redux";
+import { useReactToPrint } from "react-to-print";
 
-import Modal from "../components/Modal";
-import Subnav from "../components/Subnav";
+const FlashcardDetails = () => {
+  const params = useParams();
+  const { id } = params;
+  const [toggleModal, setToggleModal] = useState("hidden");
+  const { flashcards } = useSelector((state) => state.flashCardData);
 
-export default function FlashCardDetails() {
-  const [show, setShow] = useState(false);
+  // download as pdf
+  const pdfRef = useRef();
+  const downloadPDF = useReactToPrint({
+    content: () => pdfRef.current,
+  });
+
+  // download single term
+  const termRef = useRef();
+
+  // share, download and print button data
+  const SideBtnData = [
+    {
+      btn_id: 1,
+      btn_title: "share the webpage",
+      btn_icon: <CiShare2 className="text-blue-600" />,
+      btn_text: "Share",
+      btn_fn: () => {
+        setToggleModal("grid");
+      },
+    },
+    {
+      btn_id: 2,
+      btn_title: "download as PDF",
+      btn_icon: <BsDownload className="text-blue-600" />,
+      btn_text: "Download",
+      btn_fn: downloadPDF,
+    },
+    {
+      btn_id: 3,
+      btn_title: "print",
+      btn_icon: <BsPrinter className="text-blue-600" />,
+      btn_text: "Print",
+      btn_fn: useReactToPrint({
+        content: () => termRef.current,
+      }),
+    },
+  ];
+
+  const [state, setState] = useState({
+    term: "",
+    defination: "",
+    image: "",
+    index: 0,
+    totalTerms: 0,
+  });
+
+  const [active, setActive] = useState(null);
+
+  const fetchTermData = (term, defination, image, index, totalTerms) =>
+    setState({ term, defination, image, index, totalTerms });
+
+  const buttonRef = useRef();
+
+  useEffect(() => {
+    buttonRef.current.click();
+  }, []);
+
+  const displayData = (newInd) => {
+    flashcards.map((item) => {
+      return item.terms.map(({ term, defination, image }, index, arr) => {
+        if (newInd == index) {
+          setActive(newInd);
+          const totalTerms = arr.length;
+          fetchTermData(term, defination, image, index, totalTerms);
+        }
+        return null;
+      });
+    });
+  };
+  console.log("active", active);
 
   return (
-    <div className="flex flex-col min-h-screen -pb-5">
-      <div className="flex">
+    <div>
+      {/* share modal  */}
+
+      <ShareModal show={toggleModal} hide={setToggleModal} />
+      <PrintTemplate pdfRef={pdfRef} />
+
+      {/* title and description */}
+      <div className="flex items-start gap-5 mb-10">
         <div>
-          <Link to="/myFlashCard">
-            <BiArrowBack size={"2.5rem"} />
+          <Link to="/dashboard">
+            <i className="text-xl text-red-600">
+              <BsArrowLeft />
+            </i>
           </Link>
         </div>
-        <div className="flex flex-col">
-          <p className="ml-4 mt-0.5 text-3xl">FlashCardDetails</p>
-          <p className=" m-4 mb-10">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem
-            quaerat nemo totam debitis sint natus libero, voluptatem tempore ea,
-            ex repudiandae minima enim. Natus delectus ullam ipsum, harum velit
-            illum.
-          </p>
+        <div>
+          {flashcards.map((card) => {
+            if (card.id == id) {
+              return (
+                <div key={card.id}>
+                  <h3 className="text-2xl font-semibold leading-none capitalize mb-2">
+                    {card.groups.group}
+                  </h3>
+                  <p>{card.groups.groupDesc}</p>
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       </div>
-      <div className="flex flex-col gap-10 items-start md:flex-row">
-        <div className="flex flex-col w-full shadow-md bg-white rounded-md p-5 ">
-          <p className="text-2xl mb-5 mx-10">Flashcards</p>
-          <ul className="text-lg space-y-2">
-            <li> Lorem ipsum</li>
-            <li> card 2</li>
-            <li> card 3</li>
-            <li> card 4</li>
-            <li> card 5</li>
-            <li> card 6</li>
+
+      {/* card details container */}
+
+      <div className="xl:flex xl:gap-3 xl:items-start">
+        {/* card list */}
+        <div className="bg-white p-4 rounded-md max-h-96">
+          <h5 className="text-gray-500 border-b-2 border-b-gray-100 font-semibold">
+            Flashcards
+          </h5>
+          <ul className="flex gap-3 mt-4 font-medium text-gray-600 xl:overflow-y-scroll max-h-80 pb-5 overflow-x-scroll xl:flex-col xl:w-52 xl:overflow-x-auto">
+            {flashcards.map((item) => {
+              if (item.id == id) {
+                return item.terms.map(
+                  ({ term, defination, image }, index, arr) => (
+                    <li key={index} className="border-b border-gray-100 ">
+                      <button
+                        type="button"
+                        ref={index == 0 ? buttonRef : null}
+                        onClick={() => {
+                          setActive(index);
+
+                          const totalTerms = arr.length;
+                          fetchTermData(
+                            term,
+                            defination,
+                            image,
+                            index,
+                            totalTerms
+                          );
+                        }}
+                        className={`text-left w-52 bg-gray-200 p-3 rounded-md shadow-sm truncate xl:w-full xl:bg-transparent xl:p-0 xl:pb-1 transition-all xl:hover:text-blue-500 ${
+                          active == index && "xl:text-blue-500"
+                        }`}
+                      >
+                        {term}
+                      </button>
+                    </li>
+                  )
+                );
+              }
+              return null;
+            })}
           </ul>
         </div>
-        <div className="flex flex-col">
-          <div className="flex  w-full xl:w-[800px] lg:w-[650px] items-start flex-col md:flex-row shadow-md bg-white rounded-md p-10 gap-10">
-            <img
-              src={flash1}
-              className="w-60 aspect-square object-cover"
-              alt="alt-tag-here"
+        {/* slider or middle container that show flashcard defination */}
+        <div className="space-y-10 w-full mb-10" id="myId">
+          <Slider
+            key={id}
+            defination={state.defination}
+            image={state.image}
+            term={state.term}
+            termRef={termRef}
+          />
+
+          {/*button's to change the term defination */}
+          <div className="flex items-center gap-8 justify-center">
+            <Button
+              type={"button"}
+              text={<GrPrevious />}
+              fn={() => displayData(active - 1)}
+              btnclass={"p-2 rounded-md active:bg-blue-100 hover:bg-gray-200"}
             />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-              laborum eius ipsum corporis adipisci amet quis totam repellat nemo
-              illum! Beatae laboriosam adipisci, cum natus assumenda quisquam
-              odit fugiat laborum? Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Soluta blanditiis facilis ipsa exercitationem
-              tempora dolorem voluptatem adipisci quidem ratione voluptas, rerum
-              vitae inventore velit placeat ipsam voluptate perspiciatis porro
-              sint.
-            </p>
-          </div>
-          <div className="flex self-center m-5">
-            <button className="text-lg min-w-max">
-              <IoIosArrowBack className="text-2xl " />
-            </button>
-            <h1 className="mx-10">1/6</h1>
-            <button className="text-lg min-w-max">
-              <IoIosArrowForward className="text-2xl " />
-            </button>
+            <span>
+              {state.index + 1}/{state.totalTerms}
+            </span>
+            <Button
+              type={"button"}
+              text={<GrNext />}
+              fn={() => displayData(active + 1)}
+              btnclass={"p-2 rounded-md active:bg-blue-100 hover:bg-gray-200"}
+            />
           </div>
         </div>
-        {show && <Modal modalPop={setShow} />}
-        <div className="flex flex-col w-full gap-5">
-          <button
-            onClick={() => {
-              setShow(true);
-            }}
-            className="flex items-center px-8  py-2 text-lg shadow-md bg-white rounded-lg gap-3 min-w-max  "
-          >
-            <HiArrowUturnRight className="text-2xl " />
-            Share
-          </button>
-
-          <button className="flex items-center px-8  py-2 text-lg shadow-md bg-white rounded-lg gap-3 min-w-max  ">
-            <BsDownload className="text-2xl " />
-            Download
-          </button>
-
-          <button className="flex items-center px-8  py-2 text-lg shadow-md bg-white rounded-lg gap-3 min-w-max  ">
-            <BsPrinter className="text-2xl " />
-            Print
-          </button>
+        {/* download, print and share buttons */}
+        <div>
+          <ul className="flex gap-3 overflow-x-scroll xl:flex-col xl:overflow-x-auto">
+            {SideBtnData.map(
+              ({ btn_icon, btn_text, btn_title, btn_id, btn_fn }) => (
+                <li key={btn_id}>
+                  <Button
+                    fn={btn_fn}
+                    type={"button"}
+                    title={`Click here to ${btn_title}`}
+                    text={
+                      <>
+                        {btn_icon}
+                        {btn_text}
+                      </>
+                    }
+                    btnclass="flex items-center gap-2 bg-white rounded-md w-full shadow-sm transition-all px-6 py-2"
+                  />
+                </li>
+              )
+            )}
+          </ul>
         </div>
       </div>
     </div>
   );
+};
 
-}
+export default FlashcardDetails;
