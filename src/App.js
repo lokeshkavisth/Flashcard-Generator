@@ -1,14 +1,9 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Container from "./containers/Container";
-import FlashCardDetails from "./pages/FlashCardDetails";
-import Error from "./components/Error";
-import DisplayFlashCard from "./components/DisplayFlashCard";
+import Navbar from "./components/ui/navigation/Navbar";
+import Container from "./layouts/containers/Container";
 
 function App() {
   return (
-    <div className="bg-slate-100 pb-5 min-h-screen">
+    <div data-testid="appDiv" className="bg-slate-100 min-h-screen pb-10">
       <Navbar />
       <Container />
     </div>
