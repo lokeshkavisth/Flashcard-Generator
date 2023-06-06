@@ -55,8 +55,8 @@ const CreateGroup = ({ setFieldValue, values }) => {
             </div>
           )}
           <Field
-type="file"
-            name="groups.profile"   
+            type="file"
+            name="groups.profile"
             id="profile"
             value={""}
             hidden

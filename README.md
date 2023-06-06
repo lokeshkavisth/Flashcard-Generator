@@ -1,64 +1,79 @@
-<h1 align="center"> FlashCard </h1> <br>
-<p align="center">
-  <a href="https://gitpoint.co/">
-    <img alt="FlashCard" title="FlashCard" src="./src/assets/almaImage.jpg" width="300">
-  </a>
-</p>
+<h1 align="center">
+  <br>
+
+![logo](./src/assets/logo.png)
+
+Flashcard Generator
+
+</h1>
+
+Flashcard Generator is a web application that allows users to create, manage, and share custom flashcards. It provides an intuitive interface and a comprehensive set of features to enhance the learning process.
+
+<h2 align='center'>
+<a href='https://flashcardify.netlify.app/'>Demo</a>
+</h2>
 
 <p align="center">
-  Create flashcards using this project.
+  
+  <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+  </a>
+
+  <a href="https://www.paypal.me/lokeshkavisth">
+    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
+  </a>
 </p>
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Feedback](#feedback)
 - [Contributors](#contributors)
 - [Build Process](#build-process)
-- [Acknowledgments](#acknowledgments)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+- [Support](#support)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
 
 ## Introduction
 
+Flashcard-generator is a powerful flashcard generator app designed to supercharge your learning process. With it's beginner friendly interface you can create and orgnize your flashcards very easily. Whether you're preparing for exams, learning new languages, or enhancing your knowledge in any subject, Flashcard-generator helps you retain information effectively and boost your learning potential.
 
-We created this project with the help of Front-end technologies called HTML, tailwind CSS and JS library i.e., React JS and also used some of the libraries called Formik and Yup for React form validation.
-
-**Available for both iOS and Android.**
-
-<p align="center">
-  <img src = "http://i.imgur.com/HowF6aM.png" width=350>
-</p>
+![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
 
 ## Features
 
-A few of the things you can do with FlashCard:
+A few of the things you can do with GitPoint:
 
-* View user activity feed
-* You can easily create flashcard
-* Add images
-* Share on social media
-* Better UI/UX
-* Edit and delete cards/groups
-* Create multi terms at the same time
-* Print and download as a Pdf
-* Switch between dark and light mode
+- **Image Management:** Easily upload, delete, and edit images for your flashcards to add visual elements.
+- **Responsive UI:** Fully responsive and beginner friendly UI/UX.
+- **Group and Term Creation:** Organize your flashcards into groups and create multiple terms within each group for efficient management.
+- **Bulk Creation:** Save time by creating multiple flashcard terms simultaneously.
+- **Local Storage:** Access your flashcards even offline, thanks to browser local storage integration.
+- **Download, Print, and Share:** Export flashcards as files, print them for offline studying, or share them with others through various channels.
 
-<p align="center">
-  <img src = "http://i.imgur.com/IkSnFRL.png" width=700>
-</p>
+## Tech Stack
 
+Flashcard Generator is built using the following technologies:
 
+- **React:** JavaScript library for building user interfaces.
+- **Tailwind CSS:** Utility-first CSS framework for rapid UI development.
+- **Redux:** Predictable state management library for managing application state.
+- **Formik:** Form library for simplified form management and validation.
+- **Yup:** JavaScript schema validation library for form validation.
+- **React Icons:** Library for including popular icon sets as React components.
 
 ## Feedback
 
-Feel free to send us feedback on [Twitter](https://twitter.com/gitpointapp) or [file an issue](https://github.com/gitpoint/git-point/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
+Feel free to send us feedback on [Twitter](https://twitter.com/lokeshkavisth) or [file an issue](https://github.com/lokeshkavisth/flashcard-generator/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
 
-If there's anything you'd like to discuss about, please feel free to email us [Email](https://gitter.im/git-point)!
+If there's anything you'd like to chat about, please feel free to join our [Discord chat](https://discord.com/)!
 
+## Contributors
 
-
-
+This project follows the [all-contributors](https://github.com/lokeshkavisth/flashcard-generator) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
 
 ## Build Process
 
@@ -66,32 +81,32 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/lokeshkavisth/resume-builder-almabetter-project.git
+$ git clone https://github.com/lokeshkavisth/flashcard-generator.git
 
 # Go into the repository
-$ cd resume-builder-almabetter-project
+$ cd flashcard-generator
 
 # Install dependencies
 $ npm install
 
 # Run the app
-$ npm run dev
+$ npm start
 ```
 
-> **Note**
-> If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
- 
-## Contributers[![Backers on Open Collective](https://opencollective.com/git-point/backers/badge.svg)](#teams)
+## Support
 
-Thank you to all our Contributers! 🙏 [[Become a contributer](https://opencollective.com/git-point#backer)]
+[paypal](https://paypal.me/lokeshkavisth)
 
-<a href="https://opencollective.com/git-point#backers" target="_blank"><img src="https://opencollective.com/git-point/backers.svg?width=890"></a>
+## License
 
+Distributed under the MIT License. See [LICENSE.txt](./LICENSE.txt) for more information.
 
-## Acknowledgments
+## Acknowledgements
 
-Thanks to [JetBrains](https://www.jetbrains.com) for supporting us with a [free Open Source License](https://www.jetbrains.com/buy/opensource).
+We would like to thank the contributors to this project for their valuable contributions.
 
-## Licence
+## Contact
 
-**MIT**
+For any inquiries or support, please contact us at [twitter](https://twitter.com/lokeshkavisth)
+
+---
