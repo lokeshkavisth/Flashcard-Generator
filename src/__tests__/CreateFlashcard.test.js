@@ -1,13 +1,14 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import CreateFlashcard from "../pages/home/CreateFlashcard";
 import { Provider } from "react-redux";
 import { store } from "../store";
 import App from "../App";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
-
 import React from "react";
 import Toast from "../components/ui/toast/Toast";
+import userEvent from '@testing-library/user-event';
+
 
 it("App should render the components", () => {
   render(
@@ -73,21 +74,41 @@ describe("CreateFlashcard", () => {
     expect(toastEl).toBeInTheDocument();
   });
 
-  it("After submitting the form inputs should be empty", () => {
+  it("After submitting the form, All inputs should be empty", async () => {
     renderWithContext(<CreateFlashcard />);
-    const submitTestVal = "";
+    const submitTestVal = "abc";
 
     const groupInputEl = screen.getByLabelText(/create group*/i);
     const groupDescInputEl = screen.getByLabelText(/add description/i);
     const termInputEl = screen.getByLabelText(/enter term*/i);
     const definationInputEl = screen.getByLabelText(/enter defination*/i);
-    const buttonEl = screen.getByRole("button", { name: /create flashcard/i });
+    const buttonEl = screen.getByText("Create Flashcard");
 
     fireEvent.change(groupInputEl, { target: { value: submitTestVal } });
     fireEvent.change(groupDescInputEl, { target: { value: submitTestVal } });
     fireEvent.change(termInputEl, { target: { value: submitTestVal } });
     fireEvent.change(definationInputEl, { target: { value: submitTestVal } });
     fireEvent.click(buttonEl);
+
+    // userEvent.type(groupInputEl, 'xyz');
+    // userEvent.clear(groupInputEl,'')
+    // userEvent.click(buttonEl);
+    // expect(groupInputEl).toHaveValue("");
+
+    await waitFor(async () => {
+      await userEvent.clear(groupInputEl)
+      await userEvent.clear(groupDescInputEl)
+      await userEvent.clear(termInputEl)
+      await userEvent.clear(definationInputEl)
+      
+      expect(groupInputEl.value).toBe('') //Using value, toBe empty
+
+      expect(groupDescInputEl).toHaveValue('') //Using toHaveValue empty
+      expect(termInputEl).toHaveValue('')
+      expect(definationInputEl).toHaveValue('')
+    })
     expect(groupDescInputEl).toBeEmptyDOMElement();
+    expect(termInputEl).toBeEmptyDOMElement();
+    expect(definationInputEl).toBeEmptyDOMElement();
   });
 });
