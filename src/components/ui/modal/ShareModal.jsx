@@ -143,7 +143,7 @@ const ShareModal = ({ show, hide }) => {
               <li>
                 {/* <button> */}
                 {flashcards.map((card) => {
-                  if (card.id == id) {
+                  if (card.id === Number(id)) {
                     return (
                       <ShareOnSocial
                         key={card.id}

@@ -11,7 +11,7 @@ const MyFlashcard = () => {
     <div className="flex gap-3 flex-wrap mx-auto ">
       {/* if flashcard state data is not empty then shows cards else shows an message */}
 
-      {flashcards.length == 0 ? (
+      {Number(flashcards.length) === 0 ? (
         <div className="flex flex-col items-center justify-center gap-4 text-center mx-auto">
           <p className="text-black text-2xl">You don't have any flashcards</p>
           <NavLink

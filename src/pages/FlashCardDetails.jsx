@@ -15,6 +15,7 @@ import { useReactToPrint } from "react-to-print";
 const FlashcardDetails = () => {
   const params = useParams();
   const { id } = params;
+  console.log(typeof id);
   const [toggleModal, setToggleModal] = useState("hidden");
   const { flashcards } = useSelector((state) => state.flashCardData);
 
@@ -78,7 +79,7 @@ const FlashcardDetails = () => {
   const displayData = (newInd) => {
     flashcards.map((item) => {
       return item.terms.map(({ term, defination, image }, index, arr) => {
-        if (newInd == index) {
+        if (Number(newInd) === index) {
           setActive(newInd);
           const totalTerms = arr.length;
           fetchTermData(term, defination, image, index, totalTerms);
@@ -87,7 +88,6 @@ const FlashcardDetails = () => {
       });
     });
   };
-  console.log("active", active);
 
   return (
     <div>
@@ -107,7 +107,7 @@ const FlashcardDetails = () => {
         </div>
         <div>
           {flashcards.map((card) => {
-            if (card.id == id) {
+            if (card.id === Number(id)) {
               return (
                 <div key={card.id}>
                   <h3 className="text-2xl font-semibold leading-none capitalize mb-2">
@@ -132,13 +132,13 @@ const FlashcardDetails = () => {
           </h5>
           <ul className="flex gap-3 mt-4 font-medium text-gray-600 xl:overflow-y-scroll max-h-80 pb-5 overflow-x-scroll xl:flex-col xl:w-52 xl:overflow-x-auto">
             {flashcards.map((item) => {
-              if (item.id == id) {
+              if (item.id === Number(id)) {
                 return item.terms.map(
                   ({ term, defination, image }, index, arr) => (
                     <li key={index} className="border-b border-gray-100 ">
                       <button
                         type="button"
-                        ref={index == 0 ? buttonRef : null}
+                        ref={index === 0 ? buttonRef : null}
                         onClick={() => {
                           setActive(index);
 
@@ -152,7 +152,7 @@ const FlashcardDetails = () => {
                           );
                         }}
                         className={`text-left w-52 bg-gray-200 p-3 rounded-md shadow-sm truncate xl:w-full xl:bg-transparent xl:p-0 xl:pb-1 transition-all xl:hover:text-blue-500 ${
-                          active == index && "xl:text-blue-500"
+                          active === index && "xl:text-blue-500"
                         }`}
                       >
                         {term}

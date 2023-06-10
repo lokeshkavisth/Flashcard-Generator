@@ -5,13 +5,11 @@ const SubNav = () => {
   const { pathname } = useLocation();
   const homePages = [
     {
+      id: 1,
       title: "Create New",
       path: "/",
     },
-    {
-      title: "My Flashcard",
-      path: "/dashboard",
-    },
+    { id: 2, title: "My Flashcard", path: "/dashboard" },
   ];
 
   return (
@@ -24,11 +22,11 @@ const SubNav = () => {
         <ul className="flex items-center gap-4 border-b-2 pb-2 border-gray-300">
           {homePages.map(({ title, id, path }) => {
             return (
-              <li key={title} className="text-lg font-semibold text-gray-500">
+              <li key={id} className="text-lg font-semibold text-gray-500">
                 <NavLink
                   to={path}
                   className={
-                    pathname == path &&
+                    pathname === path &&
                     "border-b-4 pb-2 text-red-500 border-red-500"
                   }
                 >
