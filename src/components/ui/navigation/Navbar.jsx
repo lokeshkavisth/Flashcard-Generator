@@ -1,10 +1,9 @@
 // main flashcard Top Navbar
 
 import React from "react";
-import Logo from "../../../assets/logo.png";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ Logo }) => {
   return (
     <header>
       <nav

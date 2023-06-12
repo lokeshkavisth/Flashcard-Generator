@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import CreateFlashcard from "../pages/home/CreateFlashcard";
 import { Provider } from "react-redux";
 import { store } from "../store";
@@ -7,8 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import React from "react";
 import Toast from "../components/ui/toast/Toast";
-import userEvent from '@testing-library/user-event';
-
+import userEvent from "@testing-library/user-event";
 
 it("App should render the components", () => {
   render(
@@ -93,20 +92,22 @@ describe("CreateFlashcard", () => {
     // userEvent.type(groupInputEl, 'xyz');
     // userEvent.clear(groupInputEl,'')
     // userEvent.click(buttonEl);
-    // expect(groupInputEl).toHaveValue("");
+    // expect(groupInputEl).toBe("");
 
-    await waitFor(async () => {
-      await userEvent.clear(groupInputEl)
-      await userEvent.clear(groupDescInputEl)
-      await userEvent.clear(termInputEl)
-      await userEvent.clear(definationInputEl)
-      
-      expect(groupInputEl.value).toBe('') //Using value, toBe empty
-
-      expect(groupDescInputEl).toHaveValue('') //Using toHaveValue empty
-      expect(termInputEl).toHaveValue('')
-      expect(definationInputEl).toHaveValue('')
-    })
+    await waitFor(() => {
+      // eslint-disable-next-line testing-library/no-wait-for-side-effects
+      userEvent.clear(groupInputEl);
+      // eslint-disable-next-line testing-library/no-wait-for-side-effects
+      userEvent.clear(groupDescInputEl);
+      // eslint-disable-next-line testing-library/no-wait-for-side-effects
+      userEvent.clear(termInputEl);
+      // eslint-disable-next-line testing-library/no-wait-for-side-effects
+      userEvent.clear(definationInputEl);
+    });
+    expect(groupDescInputEl).toHaveValue(""); //Using toHaveValue empty
+    expect(termInputEl).toHaveValue("");
+    expect(definationInputEl).toHaveValue("");
+    expect(groupInputEl.value).toBe(""); //Using value, toBe empty
     expect(groupDescInputEl).toBeEmptyDOMElement();
     expect(termInputEl).toBeEmptyDOMElement();
     expect(definationInputEl).toBeEmptyDOMElement();
