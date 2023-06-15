@@ -118,14 +118,7 @@ const CreateTerm = ({ values, setFieldValue }) => {
                               setDeleteIndex(index);
                             }}
                           />
-                          {/* <Button
-                            type={"button"}
-                            text={
-                              <label For={`cardImage-${index}`}>
-                                <BiEdit className="text-blue-700 text-3xl cursor-pointer" />
-                              </label>
-                            }
-                          /> */}
+
                           <Button
                             type={"button"}
                             text={
@@ -161,8 +154,6 @@ const CreateTerm = ({ values, setFieldValue }) => {
                               </label>
                             }
                           />
-
-
                         </div>
                       }
                     </div>
