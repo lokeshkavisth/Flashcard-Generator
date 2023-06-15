@@ -56,14 +56,14 @@ const CreateTerm = ({ values, setFieldValue }) => {
                         text={
                           <>
                             <label
-                              htmlFor={`cardImage-${item}`}
+                              htmlFor={`cardImage-${index}`}
                               className="flex items-center cursor-pointer"
                             >
                               <AiFillFileImage className="text-blue-700" />
                               Upload Image
                               <input
                                 type="file"
-                                id={`cardImage-${item}`}
+                                id={`cardImage-${index}`}
                                 hidden
                                 accept="image/*"
                                 // taking the input data from the user and extracting the image link from file object using FileReader
@@ -110,7 +110,7 @@ const CreateTerm = ({ values, setFieldValue }) => {
                           <Button
                             type={"button"}
                             text={
-                              <TbTrashX className="text-3xl text-red-500" />
+                              <TbTrashX className="text-3xl text-red-500 " />
                             }
                             fn={() => {
                               setFieldValue(`terms.${index}.image`, "");
@@ -118,14 +118,51 @@ const CreateTerm = ({ values, setFieldValue }) => {
                               setDeleteIndex(index);
                             }}
                           />
-                          <Button
+                          {/* <Button
                             type={"button"}
                             text={
-                              <label htmlFor={`cardImage-${item}`}>
+                              <label For={`cardImage-${index}`}>
                                 <BiEdit className="text-blue-700 text-3xl cursor-pointer" />
                               </label>
                             }
+                          /> */}
+                          <Button
+                            type={"button"}
+                            text={
+                              <label
+                                htmlFor={`cardImage-${index}`}
+                                className="flex items-center cursor-pointer"
+                              >
+                                <BiEdit className="text-blue-700 text-3xl cursor-pointer" />
+                                <input
+                                  type="file"
+                                  id={`cardImage-${index}`}
+                                  hidden
+                                  accept="image/*"
+                                  // taking the input data from the user and extracting the image link from file object using FileReader
+                                  onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    const reader = new FileReader();
+                                    reader.readAsDataURL(file);
+                                    reader.onload = () => {
+                                      const imageUrl = reader.result;
+                                      setFieldValue(
+                                        deleteIndex == null
+                                          ? `terms.${num}.image`
+                                          : `terms.${deleteIndex}.image`,
+                                        imageUrl
+                                      );
+                                      setDeleteIndex(null);
+                                      setActiveBtn(false);
+                                    };
+                                    setDeleteIndex(null);
+                                  }}
+                                />
+                              </label>
+                            }
                           />
+
+
                         </div>
                       }
                     </div>
