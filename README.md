@@ -10,7 +10,7 @@ Flashcard Generator
 Flashcard Generator is a web application that allows users to create, manage, and share custom flashcards. It provides an intuitive interface and a comprehensive set of features to enhance the learning process.
 
 <h2 align='center'>
-<a href='https://flashcardify.netlify.app/'>Demo</a>
+<a href='https://flashcard-generator-alma.vercel.app/'>Demo</a>
 </h2>
 
 <p align="center">
@@ -67,13 +67,13 @@ Flashcard Generator is built using the following technologies:
 
 ## Feedback
 
-Feel free to send us feedback on [Twitter](https://twitter.com/lokeshkavisth) or [file an issue](https://github.com/lokeshkavisth/flashcard-generator/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
+Feel free to send us feedback on [Twitter](https://twitter.com/lokeshkavisth) or [file an issue](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
 
 If there's anything you'd like to chat about, please feel free to join our [Discord chat](https://discord.com/)!
 
 ## Contributors
 
-This project follows the [all-contributors](https://github.com/lokeshkavisth/flashcard-generator) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
+This project follows the [all-contributors](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
 
 ## Build Process
 
@@ -81,10 +81,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/lokeshkavisth/flashcard-generator.git
+$ git clone https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter.git
 
 # Go into the repository
-$ cd flashcard-generator
+$ cd Flashcard-Generator-Almabetter
 
 # Install dependencies
 $ npm install
