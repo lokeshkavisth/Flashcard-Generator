@@ -14,14 +14,9 @@ Flashcard Generator is a web application that allows users to create, manage, an
 <a href='https://flashcard-generator-alma.vercel.app/' target="_blank">Demo</a>
 </h2>
 
-<p align="center">
-  
+<p align="center">  
   <a href="https://opensource.org/licenses/MIT">
       <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
-  </a>
-
-  <a href="https://www.paypal.me/lokeshkavisth">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
   </a>
 </p>
 
