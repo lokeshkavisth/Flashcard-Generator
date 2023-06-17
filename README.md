@@ -1,3 +1,4 @@
+
 <h1 align="center">
   <br>
 
@@ -41,7 +42,10 @@ Flashcard Generator is a web application that allows users to create, manage, an
 
 Flashcard-generator is a powerful flashcard generator app designed to supercharge your learning process. With it's beginner friendly interface you can create and orgnize your flashcards very easily. Whether you're preparing for exams, learning new languages, or enhancing your knowledge in any subject, Flashcard-generator helps you retain information effectively and boost your learning potential.
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+
+![flashcard-generator](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter/assets/104786100/51561cf8-1d81-41eb-8c71-c6fc37e2391e)
+
+
 
 ## Features
 
