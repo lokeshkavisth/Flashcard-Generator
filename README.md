@@ -33,7 +33,6 @@ Flashcard Generator is a web application that allows users to create, manage, an
 - [Feedback](#feedback)
 - [Contributors](#contributors)
 - [Build Process](#build-process)
-- [Support](#support)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
@@ -49,7 +48,7 @@ Flashcard-generator is a powerful flashcard generator app designed to supercharg
 
 ## Features
 
-A few of the things you can do with GitPoint:
+A few of the things you can do with Flashcard-Generator:
 
 - **Image Management:** Easily upload, delete, and edit images for your flashcards to add visual elements.
 - **Responsive UI:** Fully responsive and beginner friendly UI/UX.
@@ -71,9 +70,7 @@ Flashcard Generator is built using the following technologies:
 
 ## Feedback
 
-Feel free to send us feedback on [Twitter](https://twitter.com/lokeshkavisth) or [file an issue](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
-
-If there's anything you'd like to chat about, please feel free to join our [Discord chat](https://discord.com/)!
+Feel free to send us feedback on [GitHub](https://github.com/lokeshkavisth) or [file an issue](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
 
 ## Contributors
 
@@ -97,10 +94,6 @@ $ npm install
 $ npm start
 ```
 
-## Support
-
-[paypal](https://paypal.me/lokeshkavisth)
-
 ## License
 
 Distributed under the MIT License. See [LICENSE.txt](./LICENSE.txt) for more information.
@@ -111,6 +104,6 @@ We would like to thank the contributors to this project for their valuable contr
 
 ## Contact
 
-For any inquiries or support, please contact us at [twitter](https://twitter.com/lokeshkavisth)
+For any inquiries or support, please contact us at [GitHub](https://twitter.com/lokeshkavisth)
 
 ---
