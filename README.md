@@ -72,18 +72,18 @@ Feel free to send us feedback on [GitHub](https://github.com/lokeshkavisth) or [
 This project follows the [all-contributors](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
 
 1. Shrikrishna Patil
-[GitHub](https://github.com/Patil-Shrikrishna)
-[LinkedIn](https://www.linkedin.com/in/shrikrishna-patil-1b9101239/)
+[GitHub](https://github.com/Patil-Shrikrishna) |
+[LinkedIn](https://www.linkedin.com/in/shrikrishna-patil-1b9101239/) |
 [YouTube]()
 
 2. Sneta Gupta
-[GitHub](https://github.com/snetagupta)
-[LinkedIn](https://www.linkedin.com/in/sneta-gupta-3062b4155/)
+[GitHub](https://github.com/snetagupta) |
+[LinkedIn](https://www.linkedin.com/in/sneta-gupta-3062b4155/) |
 [YouTube]()
 
 3. Akhilesh Maurya
-[GitHub](https://github.com/akhilesh365)
-[LinkedIn](https://www.linkedin.com/in/akhilesh-maurya-985078161/)
+[GitHub](https://github.com/akhilesh365) |
+[LinkedIn](https://www.linkedin.com/in/akhilesh-maurya-985078161/) |
 [YouTube]()
 
 ## Build Process
