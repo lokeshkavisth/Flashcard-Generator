@@ -71,6 +71,21 @@ Feel free to send us feedback on [GitHub](https://github.com/lokeshkavisth) or [
 
 This project follows the [all-contributors](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
 
+1. Shrikrishna Patil
+[GitHub](https://github.com/Patil-Shrikrishna)
+[LinkedIn](https://www.linkedin.com/in/shrikrishna-patil-1b9101239/)
+[YouTube]()
+
+2. Sneta Gupta
+[GitHub](https://github.com/snetagupta)
+[LinkedIn](https://www.linkedin.com/in/sneta-gupta-3062b4155/)
+[YouTube]()
+
+3. Akhilesh Maurya
+[GitHub](https://github.com/akhilesh365)
+[LinkedIn](https://www.linkedin.com/in/akhilesh-maurya-985078161/)
+[YouTube]()
+
 ## Build Process
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
