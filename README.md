@@ -74,17 +74,17 @@ This project follows the [all-contributors](https://github.com/lokeshkavisth/Fla
 1. Shrikrishna Patil
 [GitHub](https://github.com/Patil-Shrikrishna) |
 [LinkedIn](https://www.linkedin.com/in/shrikrishna-patil-1b9101239/) |
-[YouTube]()
+[YouTube](https://www.youtube.com/@krishnapatil03)
 
 2. Sneta Gupta
 [GitHub](https://github.com/snetagupta) |
 [LinkedIn](https://www.linkedin.com/in/sneta-gupta-3062b4155/) |
-[YouTube]()
+[YouTube](https://www.youtube.com/@Snetagupta)
 
 3. Akhilesh Maurya
 [GitHub](https://github.com/akhilesh365) |
 [LinkedIn](https://www.linkedin.com/in/akhilesh-maurya-985078161/) |
-[YouTube]()
+[YouTube](https://youtube.com/@akhileshmaurya2287)
 
 ## Build Process
 
