@@ -1,5 +1,3 @@
-// myflashcard page that shows all flashcards
-
 import React from "react";
 import Card from "../components/ui/card/Card";
 import { NavLink } from "react-router-dom";
@@ -14,8 +12,6 @@ const MyFlashcard = () => {
       data-testid="container"
       role="main"
     >
-      {/* if flashcard state data is not empty then shows cards else shows an message */}
-
       {flashcards.length === 0 ? (
         <div className="flex flex-col items-center justify-center gap-4 text-center mx-auto">
           <p className="text-black text-2xl">You don't have any flashcards</p>
@@ -24,7 +20,6 @@ const MyFlashcard = () => {
             to={"/"}
             data-testid="navigation"
             name="Create Flashcard"
-            // role="navigation"
             className={
               "px-6 py-2 bg-red-500 rounded-md text-xl font-semibold text-white hover:bg-red-700 transition-all"
             }
