@@ -43,7 +43,7 @@ const PrintTemplate = ({ pdfRef }) => {
 
             <div>
               <ul className="space-y-6 flex flex-col">
-                {flashcard.terms.map(({ term, defination, image }, index) => (
+                {flashcard.terms.map(({ term, definition, image }, index) => (
                   <li key={index}>
                     <div className="flex gap-3 mb-4">
                       <span className="w-7 h-7 rounded-full aspect-square bg-blue-500 text-white grid place-items-center">
@@ -62,7 +62,7 @@ const PrintTemplate = ({ pdfRef }) => {
                       </div>
                       <div>
                         <p className="text-gray-600 text-justify">
-                          {defination}
+                          {definition}
                         </p>
                       </div>
                     </div>

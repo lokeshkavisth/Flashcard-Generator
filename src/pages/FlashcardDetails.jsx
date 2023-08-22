@@ -1,5 +1,3 @@
-// Flashcard detail page that shows flashcard data
-
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BsArrowLeft, BsDownload, BsPrinter } from "react-icons/bs";
@@ -19,16 +17,13 @@ const FlashcardDetails = () => {
   const [toggleModal, setToggleModal] = useState("hidden");
   const { flashcards } = useSelector((state) => state.flashCardData);
 
-  // download as pdf
   const pdfRef = useRef();
   const downloadPDF = useReactToPrint({
     content: () => pdfRef.current,
   });
 
-  // download single term
   const termRef = useRef();
 
-  // share, download and print button data
   const SideBtnData = [
     {
       btn_id: 1,
@@ -59,7 +54,7 @@ const FlashcardDetails = () => {
 
   const [state, setState] = useState({
     term: "",
-    defination: "",
+    definition: "",
     image: "",
     index: 0,
     totalTerms: 0,
@@ -67,8 +62,8 @@ const FlashcardDetails = () => {
 
   const [active, setActive] = useState(null);
 
-  const fetchTermData = (term, defination, image, index, totalTerms) =>
-    setState({ term, defination, image, index, totalTerms });
+  const fetchTermData = (term, definition, image, index, totalTerms) =>
+    setState({ term, definition, image, index, totalTerms });
 
   const buttonRef = useRef();
 
@@ -78,11 +73,11 @@ const FlashcardDetails = () => {
 
   const displayData = (newInd) => {
     flashcards.map((item) => {
-      return item.terms.map(({ term, defination, image }, index, arr) => {
+      return item.terms.map(({ term, definition, image }, index, arr) => {
         if (Number(newInd) === index) {
           setActive(newInd);
           const totalTerms = arr.length;
-          fetchTermData(term, defination, image, index, totalTerms);
+          fetchTermData(term, definition, image, index, totalTerms);
         }
         return null;
       });
@@ -91,12 +86,9 @@ const FlashcardDetails = () => {
 
   return (
     <div>
-      {/* share modal  */}
-
       <ShareModal show={toggleModal} hide={setToggleModal} />
       <PrintTemplate pdfRef={pdfRef} />
 
-      {/* title and description */}
       <div className="flex items-start gap-5 mb-10">
         <div>
           <Link to="/dashboard">
@@ -122,10 +114,7 @@ const FlashcardDetails = () => {
         </div>
       </div>
 
-      {/* card details container */}
-
       <div className="xl:flex xl:gap-3 xl:items-start">
-        {/* card list */}
         <div className="bg-white p-4 rounded-md max-h-96">
           <h5 className="text-gray-500 border-b-2 border-b-gray-100 font-semibold">
             Flashcards
@@ -134,7 +123,7 @@ const FlashcardDetails = () => {
             {flashcards.map((item) => {
               if (item.id === Number(id)) {
                 return item.terms.map(
-                  ({ term, defination, image }, index, arr) => (
+                  ({ term, definition, image }, index, arr) => (
                     <li key={index} className="border-b border-gray-100 ">
                       <button
                         type="button"
@@ -145,7 +134,7 @@ const FlashcardDetails = () => {
                           const totalTerms = arr.length;
                           fetchTermData(
                             term,
-                            defination,
+                            definition,
                             image,
                             index,
                             totalTerms
@@ -165,17 +154,15 @@ const FlashcardDetails = () => {
             })}
           </ul>
         </div>
-        {/* slider or middle container that show flashcard defination */}
         <div className="space-y-10 w-full mb-10" id="myId">
           <Slider
             key={id}
-            defination={state.defination}
+            definition={state.definition}
             image={state.image}
             term={state.term}
             termRef={termRef}
           />
 
-          {/*button's to change the term defination */}
           <div className="flex items-center gap-8 justify-center">
             <Button
               type={"button"}
@@ -194,7 +181,6 @@ const FlashcardDetails = () => {
             />
           </div>
         </div>
-        {/* download, print and share buttons */}
         <div>
           <ul className="flex gap-3 overflow-x-scroll xl:flex-col xl:overflow-x-auto">
             {SideBtnData.map(

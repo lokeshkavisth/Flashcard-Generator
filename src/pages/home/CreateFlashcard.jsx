@@ -31,7 +31,7 @@ const CreateFlashcard = () => {
         terms: [
           {
             term: "",
-            defination: "",
+            definition: "",
             image: null,
           },
         ],

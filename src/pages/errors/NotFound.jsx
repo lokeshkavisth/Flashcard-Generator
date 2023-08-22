@@ -1,19 +1,12 @@
-// Not Found page
-
 import React from "react";
-
-// The `useNavigate` hook provides access to the router's `navigate` method.
 import { useNavigate } from "react-router-dom";
 
 const NotFound = () => {
   const navigate = useNavigate();
 
-  // The `goToHome` function navigates to the home page.
   const goToHome = () => {
     return navigate("/");
   };
-
-  // This code returns a `div` element that displays a 404 error message and a button that allows the user to return to the home page.
   return (
     <div className="flex flex-col items-center gap-5 text-center">
       <h2 className="text-9xl font-bold text-gray-800">404</h2>

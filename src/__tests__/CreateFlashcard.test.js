@@ -43,13 +43,13 @@ describe("CreateFlashcard", () => {
     const groupInputEl = screen.getByLabelText(/create group*/i);
     const groupDescInputEl = screen.getByLabelText(/add description/i);
     const termInputEl = screen.getByLabelText(/enter term*/i);
-    const definationInputEl = screen.getByLabelText(/enter defination*/i);
+    const definitionInputEl = screen.getByLabelText(/enter definition*/i);
     const buttonEl = screen.getByRole("button", { name: /create flashcard/i });
 
     fireEvent.change(groupInputEl, { target: { value: mockValue } });
     fireEvent.change(groupDescInputEl, { target: { value: mockValue } });
     fireEvent.change(termInputEl, { target: { value: mockValue } });
-    fireEvent.change(definationInputEl, { target: { value: mockValue } });
+    fireEvent.change(definitionInputEl, { target: { value: mockValue } });
     expect(buttonEl).not.toBeDisabled();
   });
 
@@ -61,14 +61,14 @@ describe("CreateFlashcard", () => {
     const groupInputEl = screen.getByLabelText(/create group*/i);
     const groupDescInputEl = screen.getByLabelText(/add description/i);
     const termInputEl = screen.getByLabelText(/enter term*/i);
-    const definationInputEl = screen.getByLabelText(/enter defination*/i);
+    const definitionInputEl = screen.getByLabelText(/enter definition*/i);
     const buttonEl = screen.getByRole("button", { name: /create flashcard/i });
     const toastEl = screen.getByTestId("toast-dataid");
 
     fireEvent.change(groupInputEl, { target: { value: submitTestVal } });
     fireEvent.change(groupDescInputEl, { target: { value: submitTestVal } });
     fireEvent.change(termInputEl, { target: { value: submitTestVal } });
-    fireEvent.change(definationInputEl, { target: { value: submitTestVal } });
+    fireEvent.change(definitionInputEl, { target: { value: submitTestVal } });
     fireEvent.click(buttonEl);
     expect(toastEl).toBeInTheDocument();
   });
@@ -80,13 +80,13 @@ describe("CreateFlashcard", () => {
     const groupInputEl = screen.getByLabelText(/create group*/i);
     const groupDescInputEl = screen.getByLabelText(/add description/i);
     const termInputEl = screen.getByLabelText(/enter term*/i);
-    const definationInputEl = screen.getByLabelText(/enter defination*/i);
+    const definitionInputEl = screen.getByLabelText(/enter definition*/i);
     const buttonEl = screen.getByText("Create Flashcard");
 
     fireEvent.change(groupInputEl, { target: { value: submitTestVal } });
     fireEvent.change(groupDescInputEl, { target: { value: submitTestVal } });
     fireEvent.change(termInputEl, { target: { value: submitTestVal } });
-    fireEvent.change(definationInputEl, { target: { value: submitTestVal } });
+    fireEvent.change(definitionInputEl, { target: { value: submitTestVal } });
     fireEvent.click(buttonEl);
 
     // userEvent.type(groupInputEl, 'xyz');
@@ -102,14 +102,14 @@ describe("CreateFlashcard", () => {
       // eslint-disable-next-line testing-library/no-wait-for-side-effects
       userEvent.clear(termInputEl);
       // eslint-disable-next-line testing-library/no-wait-for-side-effects
-      userEvent.clear(definationInputEl);
+      userEvent.clear(definitionInputEl);
     });
     expect(groupDescInputEl).toHaveValue(""); //Using toHaveValue empty
     expect(termInputEl).toHaveValue("");
-    expect(definationInputEl).toHaveValue("");
+    expect(definitionInputEl).toHaveValue("");
     expect(groupInputEl.value).toBe(""); //Using value, toBe empty
     expect(groupDescInputEl).toBeEmptyDOMElement();
     expect(termInputEl).toBeEmptyDOMElement();
-    expect(definationInputEl).toBeEmptyDOMElement();
+    expect(definitionInputEl).toBeEmptyDOMElement();
   });
 });
