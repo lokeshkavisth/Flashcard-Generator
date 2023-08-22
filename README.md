@@ -11,7 +11,7 @@ Flashcard Generator
 Flashcard Generator is a web application that allows users to create, manage, and share custom flashcards. It provides an intuitive interface and a comprehensive set of features to enhance the learning process.
 
 <h2 align='center'>
-<a href='https://flashcard-generator-alma.vercel.app/' target="_blank">Demo</a>
+<a href='https://generator-flashcard.vercel.app/' target="_blank">Demo</a>
 </h2>
 
 <p align="center">  
