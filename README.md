@@ -37,7 +37,7 @@ Flashcard Generator is a web application that allows users to create, manage, an
 Flashcard-generator is a powerful flashcard generator app designed to supercharge your learning process. With it's beginner friendly interface you can create and orgnize your flashcards very easily. Whether you're preparing for exams, learning new languages, or enhancing your knowledge in any subject, Flashcard-generator helps you retain information effectively and boost your learning potential.
 
 
-![flashcard-generator](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter/assets/104786100/51561cf8-1d81-41eb-8c71-c6fc37e2391e)
+![flashcard-generator](https://github.com/lokeshkavisth/Flashcard-Generator/assets/104786100/51561cf8-1d81-41eb-8c71-c6fc37e2391e)
 
 
 
@@ -65,11 +65,11 @@ Flashcard Generator is built using the following technologies:
 
 ## Feedback
 
-Feel free to send us feedback on [GitHub](https://github.com/lokeshkavisth) or [file an issue](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
+Feel free to send us feedback on [GitHub](https://github.com/lokeshkavisth) or [file an issue](https://github.com/lokeshkavisth/Flashcard-Generator/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
 
 ## Contributors
 
-This project follows the [all-contributors](https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
+This project follows the [all-contributors](https://github.com/lokeshkavisth/Flashcard-Generator) specification and is brought to you by these [awesome contributors](./CONTRIBUTORS.md).
 
 1. Shrikrishna Patil
 [GitHub](https://github.com/Patil-Shrikrishna) |
@@ -92,10 +92,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/lokeshkavisth/Flashcard-Generator-Almabetter.git
+$ git clone https://github.com/lokeshkavisth/Flashcard-Generator.git
 
 # Go into the repository
-$ cd Flashcard-Generator-Almabetter
+$ cd Flashcard-Generator
 
 # Install dependencies
 $ npm install
