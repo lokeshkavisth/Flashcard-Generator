@@ -1,6 +1,4 @@
-// create term and defination page for the flashcard app
-
-import React, { useState } from "react";
+import React from "react";
 import { AiFillFileImage } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { TbTrashX } from "react-icons/tb";
@@ -9,16 +7,12 @@ import FieldInput from "./ui/input/FieldInput";
 import { FieldArray } from "formik";
 
 const CreateTerm = ({ values, setFieldValue }) => {
-  const [num, setNum] = useState(0);
-  const [activeBtn, setActiveBtn] = useState(true);
-  const [deleteIndex, setDeleteIndex] = useState(null);
-
-  // This function returns a `div` element that contains the create term and definition form.
+  
   return (
     <div className={!values.groups.group && "opacity-50 pointer-events-none"}>
       <FieldArray
         name="terms"
-        render={(formHelpers) => (
+        render={(arrayHelpers) => (
           <ul className="bg-white md:p-10 rounded-md sm:p-5 p-5 shadow-md flex flex-col gap-8">
             {values.terms.map((item, index) => (
               <li
@@ -29,25 +23,22 @@ const CreateTerm = ({ values, setFieldValue }) => {
                   {index + 1}
                 </span>
                 <div className="flex items-end flex-wrap gap-5 md:flex-row sm:flex-col flex-col w-full">
-                  {/* Enter term input */}
                   <FieldInput
                     name={`terms.${index}.term`}
-                    htmlFor={`Term${item}`}
+                    htmlFor={`Term${index}`}
                     label={"Enter Term"}
-                    id={`Term${item}`}
+                    id={`Term${index}`}
                     placeholder={"What is ISP?"}
                   />
-                  {/* Enter Defination input */}
                   <FieldInput
-                    name={`terms.${index}.defination`}
-                    htmlFor={`Defination${item}`}
-                    label={"Enter Defination"}
-                    id={`Defination${item}`}
+                    name={`terms.${index}.definition`}
+                    htmlFor={`Definition${index}`}
+                    label={"Enter Definition"}
+                    id={`Definition${index}`}
                     placeholder={"An ISP (internet service provider) is..."}
                   />
                   {!item.image && (
                     <div>
-                      {/* button for uploading term image */}
                       <Button
                         type={"button"}
                         btnclass={
@@ -66,23 +57,17 @@ const CreateTerm = ({ values, setFieldValue }) => {
                                 id={`cardImage-${index}`}
                                 hidden
                                 accept="image/*"
-                                // taking the input data from the user and extracting the image link from file object using FileReader
-                                onChange={(e) => {
+                                 onChange={(e) => {
                                   const file = e.target.files[0];
                                   const reader = new FileReader();
                                   reader.readAsDataURL(file);
                                   reader.onload = () => {
                                     const imageUrl = reader.result;
-                                    setFieldValue(
-                                      deleteIndex == null
-                                        ? `terms.${num}.image`
-                                        : `terms.${deleteIndex}.image`,
-                                      imageUrl
-                                    );
-                                    setDeleteIndex(null);
-                                    setActiveBtn(false);
+                                    arrayHelpers.replace(index, {
+                                      ...item,
+                                      image: imageUrl,
+                                    });
                                   };
-                                  setDeleteIndex(null);
                                 }}
                               />
                             </label>
@@ -91,9 +76,6 @@ const CreateTerm = ({ values, setFieldValue }) => {
                       />
                     </div>
                   )}
-                  {/* This code renders a `div` element if the `item.image`
-                  variable is not `null`. The `div` element contains the term
-                  image, a trash button, and an edit button. */}
                   {item.image && (
                     <div className="flex items-center gap-5">
                       <div>
@@ -112,11 +94,7 @@ const CreateTerm = ({ values, setFieldValue }) => {
                             text={
                               <TbTrashX className="text-3xl text-red-500 " />
                             }
-                            fn={() => {
-                              setFieldValue(`terms.${index}.image`, "");
-                              setActiveBtn(true);
-                              setDeleteIndex(index);
-                            }}
+                            fn={() => setFieldValue(`terms.${index}.image`, "")}
                           />
 
                           <Button
@@ -132,24 +110,18 @@ const CreateTerm = ({ values, setFieldValue }) => {
                                   id={`cardImage-${index}`}
                                   hidden
                                   accept="image/*"
-                                  // taking the input data from the user and extracting the image link from file object using FileReader
-                                  onChange={(e) => {
-                                    const file = e.target.files[0];
-                                    const reader = new FileReader();
-                                    reader.readAsDataURL(file);
-                                    reader.onload = () => {
-                                      const imageUrl = reader.result;
-                                      setFieldValue(
-                                        deleteIndex == null
-                                          ? `terms.${num}.image`
-                                          : `terms.${deleteIndex}.image`,
-                                        imageUrl
-                                      );
-                                      setDeleteIndex(null);
-                                      setActiveBtn(false);
-                                    };
-                                    setDeleteIndex(null);
-                                  }}
+                                   onChange={(e) => {
+                                  const file = e.target.files[0];
+                                  const reader = new FileReader();
+                                  reader.readAsDataURL(file);
+                                  reader.onload = () => {
+                                    const imageUrl = reader.result;
+                                    arrayHelpers.replace(index, {
+                                      ...item,
+                                      image: imageUrl,
+                                    });                                    
+                                  };
+                                 }}
                                 />
                               </label>
                             }
@@ -158,15 +130,12 @@ const CreateTerm = ({ values, setFieldValue }) => {
                       }
                     </div>
                   )}
-                  {/* This code checks if the index variable is equal to 0. // If
-                  it is, then the code renders a button that allows the user to
-                  remove the term from the list. */}
-                  {Number(!index) === 0 && (
+                  {index !== 0 && (
                     <div>
                       <Button
                         type="button"
                         btnclass={"font-semibold text-blue-700 mt-5"}
-                        fn={() => formHelpers.remove(index)}
+                        fn={() => arrayHelpers.remove(index)}
                         text={"- Remove"}
                         list
                       />
@@ -179,12 +148,7 @@ const CreateTerm = ({ values, setFieldValue }) => {
             <li className="text-center md:text-left">
               <Button
                 type="button"
-                disabled={activeBtn}
-                fn={() => {
-                  formHelpers.push("");
-                  setNum((prev) => prev + 1);
-                  setActiveBtn(true);
-                }}
+                fn={() => arrayHelpers.push("")}
                 btnclass={"font-semibold text-blue-700 mt-5"}
                 text={"+ Add more"}
               />
