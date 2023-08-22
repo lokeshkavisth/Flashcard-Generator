@@ -12,20 +12,9 @@ const Card = ({ group, groupDesc, terms, image, id }) => {
 
   return (
     <div
-      className="sm:w-72 w-full md:w-80 lg:w-80 mx-auto sm:mx-0 bg-white border border-gray-300 shadow-sm rounded-md p-5 pt-8 relative flex flex-col justify-between"
+      className="sm:w-72 w-full md:w-80 lg:w-80 mx-auto sm:mx-0 bg-white border border-gray-300 shadow-sm rounded-md p-5 pt-8 flex flex-col justify-between"
       id={id}
     >
-      <div className="absolute top-1 right-1">
-        <Button
-          type={"button"}
-          text={<TbTrashX />}
-          fn={() => dispatch(deleteFlashcard(id))}
-          btnclass={
-            "p-1 rounded-md text-red-500 text-xl hover:bg-gray-100 transition-all active:bg-red-200"
-          }
-        />
-      </div>
-
       <div className="flex items-center gap-5">
         <div className="w-14 h-14">
           <img
@@ -46,11 +35,12 @@ const Card = ({ group, groupDesc, terms, image, id }) => {
         </div>
       </div>
 
-      <div className="my-4">
+      <div className="space-y-4 mt-4">
         <p className="text-gray-600 line-clamp-2">{groupDesc}</p>
+        <div className="flex items-center justify-between">
         <Link
           to={`/dashboard/${id}`}
-          className="flex items-center gap-5 mt-5 text-red-600 font-semibold"
+          className="flex items-center gap-5 text-red-600 font-semibold"
           title="view card details"
         >
           View Card
@@ -58,6 +48,16 @@ const Card = ({ group, groupDesc, terms, image, id }) => {
             <BsArrowRight />
           </i>
         </Link>
+
+        <Button
+          type={"button"}
+          text={<TbTrashX />}
+          fn={() => dispatch(deleteFlashcard(id))}
+          btnclass={
+            "p-1 rounded-md text-red-500 text-xl transition-all bg-red-100 hover:bg-red-200 active:bg-red-300"
+          }
+        />
+      </div>
       </div>
     </div>
   );
