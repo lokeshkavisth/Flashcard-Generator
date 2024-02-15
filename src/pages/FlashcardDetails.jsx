@@ -13,7 +13,6 @@ import { useReactToPrint } from "react-to-print";
 const FlashcardDetails = () => {
   const params = useParams();
   const { id } = params;
-  console.log(typeof id);
   const [toggleModal, setToggleModal] = useState("hidden");
   const { flashcards } = useSelector((state) => state.flashCardData);
 
@@ -120,34 +119,38 @@ const FlashcardDetails = () => {
             Flashcards
           </h5>
           <ul className="flex gap-3 mt-4 font-medium text-gray-600 xl:overflow-y-scroll max-h-80 pb-5 overflow-x-scroll xl:flex-col xl:w-52 xl:overflow-x-auto">
-            {flashcards.map((item) => {
-              if (item.id === Number(id)) {
-                return item.terms.map(
-                  ({ term, definition, image }, index, arr) => (
-                    <li key={index} className="border-b border-gray-100 ">
-                      <button
-                        type="button"
-                        ref={index === 0 ? buttonRef : null}
-                        onClick={() => {
-                          setActive(index);
+            {flashcards.map((flashcard) => {
+              if (flashcard.id === Number(id)) {
+                return flashcard.terms.map(
+                  ({ term, definition, image }, index) => {
+                    const isButtonRef = index === 0 ? buttonRef : null;
+                    const isActive = active === index;
+                    const handleClick = () => {
+                      setActive(index);
+                      fetchTermData(
+                        term,
+                        definition,
+                        image,
+                        index,
+                        flashcard.terms.length
+                      );
+                    };
 
-                          const totalTerms = arr.length;
-                          fetchTermData(
-                            term,
-                            definition,
-                            image,
-                            index,
-                            totalTerms
-                          );
-                        }}
-                        className={`text-left w-52 bg-gray-200 p-3 rounded-md shadow-sm truncate xl:w-full xl:bg-transparent xl:p-0 xl:pb-1 transition-all xl:hover:text-blue-500 ${
-                          active === index && "xl:text-blue-500"
-                        }`}
-                      >
-                        {term}
-                      </button>
-                    </li>
-                  )
+                    return (
+                      <li key={index} className="border-b border-gray-100">
+                        <button
+                          type="button"
+                          ref={isButtonRef}
+                          onClick={handleClick}
+                          className={`text-left w-52 bg-gray-200 p-3 rounded-md shadow-sm truncate xl:w-full xl:bg-transparent xl:p-0 xl:pb-1 transition-all ${
+                            isActive ? "xl:text-blue-500 text-blue-500" : ""
+                          }`}
+                        >
+                          {term}
+                        </button>
+                      </li>
+                    );
+                  }
                 );
               }
               return null;
